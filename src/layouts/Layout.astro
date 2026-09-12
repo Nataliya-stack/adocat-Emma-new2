@@ -14,6 +14,12 @@ const {
 <!DOCTYPE html>
 <html lang="ca">
 <head>
+    <script is:inline>
+       if (window.location.hash && window.location.hash.includes('invite_token')) {
+       window.location.href = `/admin/${window.location.hash}`;
+    }
+    </script>
+
     <meta charset="UTF-8">
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
