@@ -26,6 +26,9 @@ importers:
       astro:
         specifier: ^7.1.0
         version: 7.1.0(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@netlify/blobs@10.7.13)(@types/node@24.13.4)(jiti@2.7.0)(rollup@4.63.1)(terser@5.51.2)(yaml@2.9.0)
+      netlify-identity-widget:
+        specifier: ^2.0.3
+        version: 2.0.3
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
@@ -3636,6 +3639,10 @@ packages:
   neotraverse@0.6.18:
     resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
     engines: {node: '>= 10'}
+
+  netlify-identity-widget@2.0.3:
+    resolution: {integrity: sha512-kJxVUp3frEEN5cON/JDZKiyKwXB5NaFIGmBjqhAbOPCr483g9yhdjBWkXmYX9g8S6lKOSYi98gF8ROCrUK7tvw==}
+    engines: {node: '>=20'}
 
   netlify-redirector@0.5.0:
     resolution: {integrity: sha512-4zdzIP+6muqPCuE8avnrgDJ6KW/2+UpHTRcTbMXCIRxiRmyrX+IZ4WSJGZdHPWF3WmQpXpy603XxecZ9iygN7w==}
@@ -8719,6 +8726,8 @@ snapshots:
   nanoid@3.3.16: {}
 
   neotraverse@0.6.18: {}
+
+  netlify-identity-widget@2.0.3: {}
 
   netlify-redirector@0.5.0: {}
 
