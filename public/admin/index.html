@@ -4,20 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel de Administración</title>
-    <script src="https://cdn.netlify.com/identity/v1/netlify-identity-widget.js"></script>
+    <script src="https://cloudflare.com/netlify-identity-widget/1.11.23/netlify-identity-widget.min.js"></script>
   </head>
   <body>
     <!-- Carga la app de Decap CMS -->
-    <script src="https://cloudflare.com/netlify-identity-widget/1.11.23/netlify-identity-widget.min.js"></script>
-    <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Принудительно открываем окно регистрации Netlify при загрузке страницы
-    setTimeout(() => {
-      if (typeof netlifyIdentity !== 'undefined') {
-        netlifyIdentity.open('signup');
-      }
-    }, 800);
-  });
-</script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
