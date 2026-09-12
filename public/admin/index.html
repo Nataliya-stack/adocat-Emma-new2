@@ -9,5 +9,13 @@
   <body>
     <!-- Carga la app de Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+  if (window.location.hash && window.location.hash.includes('invite_token')) {
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => { netlifyIdentity.open('signup'); }, 500);
+    });
+  }
+</script>
+
   </body>
 </html>
