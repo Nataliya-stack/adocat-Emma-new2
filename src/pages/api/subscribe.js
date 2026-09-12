@@ -1,3 +1,4 @@
+export const prerender = false;
 export const POST = async ({ request }) => {
   try {
     // Получаем email, который пользователь ввел на фронтенде
@@ -12,7 +13,7 @@ export const POST = async ({ request }) => {
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${import.meta.env.RESEND_API_KEY}`,
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({

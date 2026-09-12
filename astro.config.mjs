@@ -2,9 +2,14 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite'; // 🔒 Полностью сохраняем ваш Tailwind v4
 import sitemap from '@astrojs/sitemap';
 import vitePWA from '@vite-pwa/astro'; // 📱 Подключаем мобильный PWA-плагин
+import netlify from '@astrojs/netlify'; // 🚀 Подключаем серверный адаптер Netlify
 
 export default defineConfig({
   site: 'https://adocat.cat',
+  
+  // 🚀 Переключаем сайт в гибридный режим, чтобы работали серверные функции и формы
+  output: 'hybrid',
+  adapter: netlify(),
 
   integrations: [
     sitemap(),
