@@ -1,5 +1,3 @@
-// src/pages/api/subscribe.js
-
 export const POST = async ({ request }) => {
   try {
     // Получаем email, который пользователь ввел на фронтенде
@@ -19,7 +17,7 @@ export const POST = async ({ request }) => {
       },
       body: JSON.stringify({
         from: 'onboarding@resend.dev',
-        to: 'nataliya.yanovic@mail.ru',
+        to: 'nataliya.yanovic@gmail.com',
         subject: "✨ Benvingut/da al butlletí oficial d'ADOCAT",
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; color: #111827;">
