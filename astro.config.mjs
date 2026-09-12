@@ -8,7 +8,7 @@ export default defineConfig({
   site: 'https://adocat.cat',
   
   // 🚀 Переключаем сайт в гибридный режим, чтобы работали серверные функции и формы
-  output: 'hybrid',
+  output: 'server',
   adapter: netlify(),
 
   integrations: [
