@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout 
+  title="Bústia de Denúncies Anònimes - ADOCAT"
+  description="Canal segur i confidencial per notificar irregularitats laborals, retards del SOC i males pràctiques en centres de FP a Catalunya."
+>
+  <!-- Добавляем верхний отступ pt-32, чтобы контент не перекрывался меню -->
+  <main class="w-full bg-white min-h-screen pb-20 pt-32 px-4 md:px-8">
+    <div class="max-w-4xl mx-auto space-y-10">
+      
+      <!-- ⚠️ ШАПКА СТРАНИЦЫ ЖАЛОБ -->
+      <section class="text-left space-y-4 border-b border-gray-100 pb-8">
+        <div class="inline-flex items-center gap-2 bg-amber-50 text-amber-700 border border-amber-100 px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wider animate-pulse">
+          ⚠️ Espai Protegit Confidencial
+        </div>
+        <h1 class="text-3xl md:text-5xl font-black tracking-tight text-brand-dark uppercase leading-none">
+          Bústia d'Alertes i Incompliments
+        </h1>
+        <p class="text-base text-gray-500 font-medium leading-relaxed">
+          Si el teu centre d'estudis homologat incompleix les taules salarials, t'obliga a treballar com a fals autònom o retarda els contractes pels calendaris del SOC, denuncia-ho aquí. **Garantim anonimat absolut.**
+        </p>
+      </section>
+
+      <!-- 🛡️ БЛОК ЮРИДИЧЕСКИХ ГАРАНТИЙ -->
+      <section class="bg-gray-50 border-l-4 border-amber-500 p-5 rounded-xs text-left space-y-2">
+        <h4 class="text-sm font-black text-brand-dark uppercase tracking-wider">Com funciona la protecció de dades?</h4>
+        <p class="text-xs md:text-sm text-gray-600 font-medium leading-relaxed">
+          Les dades recopilades en aquest formulari són trameses de forma encriptada al Departament Jurídic d'ADOCAT. S'utilitzaran exclusivament per auditar els centres infractors i, si escau, coordinar accions col·lectives davant la Inspecció de Treball. No compartirem mai la teva identitat amb el centre.
+        </p>
+      </section>
+      <!-- 📝 ФОРМА ОТПРАВКИ ЖАЛОБЫ (Нативная валидация) -->
+      <section class="bg-white border border-gray-200 p-6 md:p-8 rounded-xs shadow-xs" id="denuncia-form-container">
+        <form id="complaint-secure-form" class="space-y-6 text-left">
+          
+          <!-- Поле: Название центра -->
+          <div>
+            <label for="denuncia-centre" class="block text-[10px] font-black uppercase text-gray-500 tracking-wider mb-1">Nom del centre de formació o entitat *</label>
+            <input 
+              type="text" 
+              id="denuncia-centre" 
+              required
+              placeholder="Ex: Acadèmia o Centre d'Estudis SL" 
+              class="w-full border-2 border-gray-100 bg-gray-50/50 p-3 rounded-xs font-semibold text-sm focus:border-brand-green outline-none transition-colors"
+            />
+          </div>
+
+          <!-- Селектор: Тип нарушения -->
+          <div>
+            <label for="denuncia-tipus" class="block text-[10px] font-black uppercase text-gray-500 tracking-wider mb-1">Tipus d'irregularitat principal *</label>
+            <select 
+              id="denuncia-tipus" 
+              required
+              class="w-full border-2 border-gray-100 bg-gray-50/50 p-3 rounded-xs font-semibold text-sm focus:border-brand-green outline-none transition-colors cursor-pointer text-gray-700"
+            >
+              <option value="" disabled selected>Selecciona una opció...</option>
+              <option value="fals-autonom">Imposició de règim d'autònom (Fals Autònom)</option>
+              <option value="retards-pagaments">Retards sistemàtics en els pagaments / hores</option>
+              <option value="hores-no-pagades">Exprocés d'hores lectives o de preparació no pagades</option>
+              <option value="manca-material">Manca greu de material didàctic o d'infraestructura</option>
+              <option value="altres">Altres incompliments del Conveni de l'Ensenyament</option>
+            </select>
+          </div>
+
+          <!-- Поле: Подробное описание -->
+          <div>
+            <label for="denuncia-descripcio" class="block text-[10px] font-black uppercase text-gray-500 tracking-wider mb-1">Descripció detallada dels fets *</label>
+            <textarea 
+              id="denuncia-descripcio" 
+              rows="5" 
+              required
+              placeholder="Explica breument la situació, dates aproximades dels incompliments o qualsevol dada rellevant..." 
+              class="w-full border-2 border-gray-100 bg-gray-50/50 p-3 rounded-xs font-semibold text-sm focus:border-brand-green outline-none transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Поле: Опциональные контакты для юристов -->
+          <div class="border-t border-gray-100 pt-4 space-y-4">
+            <div>
+              <h4 class="text-xs font-black text-brand-dark uppercase tracking-wider mb-1">Vols que el Departament Jurídic es posi en contacte amb tu?</h4>
+              <p class="text-xs text-gray-400 font-medium leading-relaxed">
+                Aquest camp és **totalment opcional**. Si prefereixes un anonimat 100% radical davant de tothom, deixa'l en blanc. Si vols assessorament personalitzat gratuït, posa el teu correu o telèfon.
+              </p>
+            </div>
+            <div>
+              <label for="denuncia-contacte" class="block text-[10px] font-black uppercase text-gray-500 tracking-wider mb-1">Dades de contacte (Opcional)</label>
+              <input 
+                type="text" 
+                id="denuncia-contacte" 
+                placeholder="Ex: correu@exemple.com o 600000000" 
+                class="w-full border-2 border-gray-100 bg-gray-50/50 p-3 rounded-xs font-semibold text-sm focus:border-brand-green outline-none transition-colors"
+              />
+            </div>
+          </div>
+
+          <!-- Кнопка отправки -->
+          <div class="pt-2">
+            <button type="submit" class="w-full bg-brand-dark hover:bg-black text-white font-black text-xs uppercase tracking-widest py-4 rounded-xs transition-colors shadow-xs cursor-pointer">
+              Enviar Alerta de Forma Segura &rarr;
+            </button>
+          </div>
+
+        </form>
+      </section>
+
+    </div>
+  </main>
+</Layout>

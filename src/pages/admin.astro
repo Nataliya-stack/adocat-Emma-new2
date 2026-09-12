@@ -1,0 +1,18 @@
+---
+// src/pages/admin.astro
+---
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Panell de Control - Decap CMS</title>
+    <!-- 💎 Жестко указываем CMS точный путь к файлу конфигурации в корне public -->
+    <link rel="cms-config-url" type="text/yaml" href="/config.yml" />
+  </head>
+  <body>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/decap-cms@3.1.0/dist/decap-cms.js"></script>
+  </body>
+</html>
+

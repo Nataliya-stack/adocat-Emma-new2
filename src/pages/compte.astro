@@ -1,0 +1,184 @@
+---
+import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout 
+  title="El meu Compte - ADOCAT"
+  description="Àrea privada de l'afiliat. Gestiona el teu estat de protecció jurídica, consulta els teus expedients i descarrega els certificats oficials."
+>
+  <main class="w-full bg-white min-h-screen pb-20 pt-32 px-4 md:px-8 text-brand-dark">
+    <div class="max-w-5xl mx-auto space-y-8">
+      
+            <!-- 🔒 СОВРЕМЕННЫЙ ДВУХКОЛОНОЧНЫЙ ИНТЕРФЕЙС АВТОРИЗАЦИИ -->
+      <section id="auth-container" class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center max-w-5xl mx-auto pt-6 animate-fade-in">
+        
+        <!-- ЛЕВАЯ КОЛОНКА: СТАТУСНЫЙ ИНФО-БЛОК -->
+        <div class="md:col-span-7 text-left space-y-6 pr-0 md:pr-4">
+          <div class="space-y-2">
+            <span class="text-[10px] font-black uppercase text-brand-green bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-xs tracking-wider inline-block">
+              Generalitat de Catalunya — Registre Oficial
+            </span>
+            <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight text-brand-dark leading-tight">
+              Àrea Privada de <br class="hidden md:block" /><span class="text-brand-green">Protecció Jurídica</span>
+            </h2>
+          </div>
+          
+          <p class="text-sm md:text-base text-gray-600 font-medium leading-relaxed">
+            Benvingut a l'espai securitzat d'afiliats d'<strong>ADOCAT</strong>. Aquesta àrea està totalment integrada amb el Departament Jurídic per gestionar el teu blindatge legal davant la Inspecció de Treball.
+          </p>
+
+          <!-- Список возможностей внутри кабинета -->
+          <ul class="space-y-3 pt-2">
+            <li class="flex items-start gap-3 text-sm font-semibold text-gray-700">
+              <span class="text-brand-green font-bold mt-0.5">✓</span>
+              <span>Descarga immediata de l'<strong>Acord de Sindicació</strong> oficial.</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm font-semibold text-gray-700">
+              <span class="text-brand-green font-bold mt-0.5">✓</span>
+              <span>Generació del <strong>Certificat Tècnic Laboral</strong> auditat.</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm font-semibold text-gray-700">
+              <span class="text-brand-green font-bold mt-0.5">✓</span>
+              <span>Notificació directa de canvis contractuals i irregularitats del SOC.</span>
+            </li>
+          </ul>
+          
+          <p class="text-[11px] text-gray-400 font-medium italic pt-2 border-t border-gray-100 max-w-md">
+            * L'accés està restringit exclusivament a docents registrados que han completat satisfactòriament el test de diagnòstic auditat.
+          </p>
+        </div>
+
+        <!-- ПРАВАЯ КОЛОНКА: ФОРМА ВХОДА (НАЧАЛО) -->
+        <div class="md:col-span-5 w-full">
+          <div class="border border-gray-100 p-8 rounded-2xl bg-white shadow-xl text-left space-y-6">
+            <div class="space-y-1 border-b border-gray-100 pb-4">
+              <span class="text-[9px] font-black uppercase text-gray-400 tracking-wider block">Accés Afiliat</span>
+              <h3 class="text-xl font-black uppercase tracking-tight text-brand-dark">Inicia Sessió</h3>
+            </div>
+            <form id="auth-form" class="space-y-4">
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-black uppercase tracking-wider text-gray-400 block ml-1">Correu Electrònic</label>
+                <input type="email" id="auth-email" required class="w-full p-3.5 bg-gray-50/50 border border-gray-200 text-sm font-semibold rounded-xl focus:outline-none focus:border-brand-dark focus:bg-white focus:ring-4 focus:ring-brand-dark/5 transition-all" placeholder="nom@correu.com" />
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-black uppercase tracking-wider text-gray-400 block ml-1">Contrasenya</label>
+                <input type="password" id="auth-password" required class="w-full p-3.5 bg-gray-50/50 border border-gray-200 text-sm font-semibold rounded-xl focus:outline-none focus:border-brand-dark focus:bg-white focus:ring-4 focus:ring-brand-dark/5 transition-all" placeholder="••••••••" />
+              </div>
+
+              <button type="submit" id="auth-submit-btn" class="w-full bg-brand-dark hover:bg-black text-white font-black text-xs uppercase tracking-widest py-4 rounded-xl transition-all cursor-pointer shadow-md hover:shadow-lg text-center transform active:scale-[0.99]">
+                Entrar a l'Àrea Privada
+              </button>
+            </form>
+
+            <div id="auth-error" class="hidden text-xs font-bold text-rose-600 bg-rose-50 border border-rose-100 p-3 rounded-xl text-center"></div>
+          </div>
+        </div>
+        
+      </section>
+
+
+      <!-- 👤 ОСНОВНОЙ КОНТЕНТ КАБИНЕТА (СКРЫТ ДО АВТОРИЗАЦИИ) -->
+      <div id="profile-container" class="hidden space-y-8">
+        
+        <!-- ШАПКА КАБИНЕТА -->
+        <section class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-gray-100 pb-6 text-left">
+          <div>
+            <span class="text-xs font-black uppercase text-gray-400 tracking-wider">Àrea Privada d'Afiliat</span>
+            <h1 id="user-welcome" class="text-3xl font-black uppercase tracking-tight text-brand-dark mt-1">Benvingut, ...</h1>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 border text-xs font-black uppercase tracking-wider rounded-xs border-emerald-200 bg-emerald-50 text-brand-green">
+              ✓ Afiliat Actiu
+            </span>
+            <button id="logout-btn" class="px-3 py-1 border border-gray-300 hover:border-brand-dark text-gray-400 hover:text-brand-dark text-[10px] font-black uppercase tracking-wider rounded-xs transition-colors cursor-pointer">
+              Tancar Sessió
+            </button>
+          </div>
+        </section>
+
+        <!-- 📊 СЕТКА ИНФОРМАЦИОННЫХ БЛОКОВ -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Карточка: Данные регистрации -->
+          <div class="bg-gray-50 border border-gray-200 p-6 rounded-xs space-y-4 text-left shadow-xs md:col-span-1">
+            <h3 class="text-xs font-black uppercase text-gray-400 tracking-wider border-b border-gray-200 pb-2">Dades de Registre</h3>
+            <div class="space-y-2 text-sm font-semibold">
+              <p class="text-gray-500 text-xs">ID AFILIAT: <span id="user-id" class="text-brand-dark font-mono font-bold block text-sm mt-0.5">...</span></p>
+              <p class="text-gray-500 text-xs">CORREU: <span id="user-email" class="text-brand-dark block text-sm mt-0.5">...</span></p>
+              <p class="text-gray-500 text-xs">PROVÍNCIA: <span class="text-brand-dark block text-sm mt-0.5">Barcelona</span></p>
+              <p class="text-gray-500 text-xs">STATUS: <span class="text-emerald-700 block text-sm mt-0.5">ALTA CONFIRMADA</span></p>
+            </div>
+          </div>
+
+          <!-- Блок: Официальные документы и сертификаты защиты -->
+          <div class="border border-gray-200 p-6 rounded-xs space-y-4 text-left shadow-xs md:col-span-2 flex flex-col justify-between bg-white">
+            <div class="space-y-3">
+              <h3 class="text-xs font-black uppercase text-gray-400 tracking-wider border-b border-gray-200 pb-2">Garantia Documental i Certificats</h3>
+              <p class="text-sm text-gray-600 font-medium leading-relaxed">
+                Des d'aquí pots accedir de forma immediata als teus documents oficials validats pel Departament Jurídic d'ADOCAT per fer-los valer davant la Inspecció de Treball o el SOC.
+              </p>
+            </div>
+
+            <!-- Список доступных документов для скачивания -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div class="border border-gray-100 p-4 rounded-xs bg-gray-50/50 flex flex-col justify-between items-start space-y-3">
+                <div>
+                  <h4 class="text-xs font-black text-brand-dark uppercase tracking-wide">Acord de Sindicació</h4>
+                  <p class="text-[11px] text-gray-400 font-medium mt-0.5">Full d'alta integral i representació col·lectiva actua.</p>
+                </div>
+                <button id="btn-cta-socio" class="text-xs font-black bg-brand-dark hover:bg-black text-white px-3 py-2 rounded-xs uppercase tracking-wider transition-colors cursor-pointer w-full text-center shadow-xs">
+                  📄 Visualitzar Document
+                </button>
+              </div>
+
+              <div class="border border-gray-100 p-4 rounded-xs bg-gray-50/50 flex flex-col justify-between items-start space-y-3">
+                <div>
+                  <h4 class="text-xs font-black text-brand-dark uppercase tracking-wide">Certificat Tècnic Laboral</h4>
+                  <p class="text-[11px] text-gray-400 font-medium mt-0.5">Auditoria de riscos i desviacions normatives dels CP.</p>
+                </div>
+                <button id="btn-cta-colaborar" class="text-xs font-black bg-brand-green hover:bg-brand-hover text-white px-3 py-2 rounded-xs uppercase tracking-wider transition-colors cursor-pointer w-full text-center shadow-xs">
+                  📜 Generar Certificat
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 🛡️ НИЖНИЙ БЛОК: СТАТУС АКТИВНОЙ ПРАВОВОЙ ЗАЩИТЫ -->
+        <section class="bg-gray-50 border border-gray-200 p-6 rounded-xs text-left grid md:grid-cols-12 gap-4 items-center">
+          <div class="md:col-span-9 space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+              <h4 class="text-sm font-black text-brand-dark uppercase tracking-wider">Estatus de Protecció Jurídica Activa</h4>
+            </div>
+            <p class="text-xs md:text-sm text-gray-600 font-medium leading-relaxed">
+              El teu perfil compta amb el blindatge legal d'ADOCAT davant d'acomiadaments arbitraris, situacions de fals autònom o aplicació incorrecte de taules salarials en mòduls del SOC. Qualsevol modificació contractual ha de ser notificada al teu assessor.
+            </p>
+          </div>
+          <div class="md:col-span-3 text-right w-full shrink-0">
+            <button id="btn-notificar-canvi" class="bg-brand-dark hover:bg-black text-white font-black text-xs uppercase tracking-widest py-3.5 px-4 rounded-xl shadow-md transition-all inline-block w-full text-center cursor-pointer">
+              Notificar Canvi Contracte
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Локальное модальное окно для изоляции документов на этой вкладке -->
+  <div id="compte-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div id="compte-modal-bg" class="absolute inset-0 bg-black/60 backdrop-blur-xs"></div>
+    <div id="compte-modal-card" class="bg-white text-brand-dark w-full max-w-2xl p-6 md:p-8 rounded-xs shadow-xl relative z-10 scale-95 transition-all duration-300 max-h-[85vh] overflow-y-auto">
+      <button id="close-compte-modal" class="absolute top-4 right-4 text-gray-400 hover:text-black font-black text-lg cursor-pointer">&times;</button>
+      <div id="compte-modal-content" class="mt-4"></div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import "../js/auth.js";
+</script>

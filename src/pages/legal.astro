@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Informació Legal - ADOCAT" description="Avís Legal, Política de Privacitat i Cookies de l'Associació de Docents de Formació Ocupacional de Catalunya.">
+  <main class="w-full bg-white min-h-[calc(100vh-320px)] pb-12 pt-24 px-4 md:px-8">
+    <div class="max-w-3xl mx-auto font-sans text-gray-700">
+      
+      <!-- 1. SECCIÓ: AVÍS LEGAL -->
+      <section id="avis" class="hidden target:block space-y-4">
+        <span class="px-2 py-0.5 border border-brand-green bg-emerald-50 text-brand-green text-[10px] font-black uppercase tracking-wider rounded-xs">
+          Regulació
+        </span>
+        <h1 class="text-2xl font-black uppercase tracking-tight text-brand-dark pt-1">
+          Avís Legal
+        </h1>
+        <p class="text-sm leading-relaxed text-justify">
+          En compliment de l'article 10 de la Llei 34/2002, de 11 de juliol, de Serveis de la Societat de la Informació i Comerç Electrònic (LSSI-CE), s'informa que aquest lloc web és gestionat per l'<strong>Associació de Docents de Formació Ocupacional de Catalunya (ADOCAT)</strong>. 
+        </p>
+        <p class="text-sm leading-relaxed text-justify">
+          L'accés i ús d'aquest portal atribueix la condició d'usuari, acceptant des de dit accés els termes d'ús aquí reflectits. El contingut d'aquesta web té un caràcter purament informatiu i de suport al col·lectiu docent de la FPE.
+        </p>
+      </section>
+
+      <!-- 2. SECCIÓ: PRIVACITAT -->
+      <section id="privacitat" class="hidden target:block space-y-4">
+        <span class="px-2 py-0.5 border border-blue-200 bg-blue-50 text-blue-700 text-[10px] font-black uppercase tracking-wider rounded-xs">
+          RGPD / LOPD
+        </span>
+        <h2 class="text-2xl font-black uppercase tracking-tight text-brand-dark pt-1">
+          Política de Privacitat
+        </h2>
+        <p class="text-sm leading-relaxed text-justify">
+          D'acord amb el Reglament General de Protecció de Dades (RGPD) i la Llei Orgànica 3/2018 (LOPDGDD), ADOCAT garanteix que les dades personals facilitades a través dels formularis de contacte, bústia d'alertes o l'àrea privada seran tractades de forma totalment confidential.
+        </p>
+        <p class="text-sm leading-relaxed text-justify font-mono bg-gray-50 p-3 rounded-xs border border-gray-100">
+          <strong>Finalitat del tractament:</strong> Gestió d'afiliacions, assessorament jurídic i laboral, i tramitació de consultes internes. Les dades no seran cedides a tercers excepte obligació legal o sota el consentiment exprés del docent.
+        </p>
+      </section>
+
+      <!-- 3. SECCIÓ: COOKIES -->
+      <section id="cookies" class="hidden target:block space-y-4">
+        <span class="px-2 py-0.5 border border-gray-200 bg-gray-50 text-gray-600 text-[10px] font-black uppercase tracking-wider rounded-xs">
+          Galetes
+        </span>
+        <h2 class="text-2xl font-black uppercase tracking-tight text-brand-dark pt-1">
+          Política de Cookies
+        </h2>
+        <p class="text-sm leading-relaxed text-justify">
+          Aquest lloc web utilitza cookies tècniques i essencials strictly necessàries per al correcte funcionament de l'àrea privada de l'afiliat i el manteniment de la sessió de l'usuari de forma segura.
+        </p>
+        <p class="text-sm leading-relaxed text-justify">
+          No s'utilitzen cookies de rastreig publicitari ni se cedeixen dades de navegació a corporacions analítiques externes sense el seu avís previ. L'usuari pou configurar o desactivar l'ús de galetes directament des de les opcions del seu navegador web.
+        </p>
+      </section>
+
+    </div>
+  </main>
+</Layout>

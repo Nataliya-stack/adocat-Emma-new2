@@ -1,0 +1,286 @@
+---
+import '../styles/global.css';
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout 
+  title="ADOCAT - Diagnòstic del Perfil Professional"
+  description="Avalua la teva situació laboral com a docent de Formació Profesional a Catalunya de forma interactiva."
+>
+  <!-- 📝 ОСНОВНОЙ КОНТЕЙНЕР СТРАНИЦЫ (Максимально широкий и адаптивный под ПК) -->
+    <main class="w-full max-w-4xl mx-auto pt-16 pb-12 px-4 md:px-8 flex flex-col justify-start items-center">
+      
+        <!-- Заголовок страницы диагностики -->
+        <div class="text-center space-y-3 pb-8 border-b border-gray-200">
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight text-brand-dark uppercase">
+               Diagnòstic Professional
+            </h1>
+            <p class="text-sm md:text-base font-bold uppercase tracking-widest text-gray-500">
+               Associació de Docents Ocupacionals de Catalunya
+            </p>
+        </div>
+
+        <!-- 📦 КОНТЕЙНЕР ИНТЕРАКТИВНОГО КВИЗА -->
+        <div id="quiz-flow-container" class="mt-8 space-y-6">
+          
+            <!-- 📊 Блок Прогресс-бара и Счетчика -->
+            <div class="p-4 bg-white border border-gray-200 rounded-sm flex items-center justify-between gap-4 shadow-xs">
+                <div class="w-full bg-gray-100 h-2 overflow-hidden rounded-full">
+                   <div id="progress-bar" class="bg-brand-green h-2 w-0 transition-all duration-300 rounded-full"></div>
+                </div>
+                <span id="step-counter" class="text-xs font-black text-gray-400 shrink-0 uppercase tracking-wider">
+                   1 / 6
+                </span>
+            </div>
+
+            <!-- 🔮 Сюда скрипт info.js будет динамически вставлять текущий вопрос -->
+            <div id="dynamic-steps-holder" class="min-h-55 flex items-center justify-center">
+                <!-- Спиннер загрузки или стартовое состояние -->
+                <div class="text-sm text-gray-400 font-medium">Carregant qüestionari...</div>
+            </div>
+
+            <!-- 🕹️ КНОПКИ НАВИГАЦИИ (Добавлена поддержка шага Назад/Вперед по брифу) -->
+            <div class="flex justify-between items-center gap-4 pt-4">
+                <button 
+                    id="prev-question-btn" 
+                    class="opacity-0 pointer-events-none bg-gray-100 hover:bg-gray-200 text-brand-dark font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-xs border border-gray-200 transition-all cursor-pointer flex items-center gap-2">
+                    &larr; Anterior
+                </button>
+                <button 
+                    id="next-question-btn" 
+                    class="opacity-0 pointer-events-none bg-brand-green hover:bg-brand-hover text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-xs transition-all cursor-pointer flex items-center gap-2">
+                    Següent &rarr;
+                </button>
+            </div>
+        </div>
+
+        <!-- 🎉 ЭКРАН 3: ПРОМЕЖУТОЧНЫЙ РЕЗУЛЬТАТ ДIАГНОСТИКИ (По умолчанию скрыт) -->
+        <div id="step-card-resultat" class="hidden opacity-0 transition-all duration-500 space-y-6 mt-10 text-center">
+            <div class="quiz-card w-full p-8 bg-white border border-gray-200 rounded-xs shadow-md space-y-6 text-left relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-2 bg-amber-500" id="result-top-line"></div>
+                  
+                <div class="flex items-center gap-4 border-b border-gray-100 pb-4">
+                    <div class="text-4xl" id="result-icon">⚠️</div>
+                    <div>
+                        <span class="text-xs font-black text-gray-400 uppercase tracking-widest block">Veredicte del sistema</span>
+                        <h2 id="result-status-title" class="text-xl md:text-2xl font-black text-brand-dark uppercase tracking-tight">
+                            <!-- Сюда JS вставит статус прекариата -->
+                        </h2>
+                    </div>
+                </div>
+
+                <p id="result-description-text" class="text-sm md:text-base text-gray-600 leading-relaxed font-medium">
+                    <!-- Сюда JS вставит развернутое описание -->
+                </p>
+                  
+                <div class="bg-gray-50 p-4 border border-gray-200 text-xs font-semibold text-gray-500 uppercase tracking-wider rounded-sm flex items-center gap-2">
+                    💡 El 84% dels docents amb el teu perfil milloren la seva estabilitat en unir-se.
+                </div>
+            </div>
+
+            <button id="go-to-form-btn" class="btn-primary w-full md:w-auto px-8 py-4 text-sm font-black tracking-widest uppercase shadow-md">
+                Uneix-te a la Comunitat &rarr;
+            </button>
+        </div>
+
+        <!-- 📥 ЭКРАН 4: ФИНАЛЬНАЯ ФОРМА ЛИДА (По умолчанию скрыта) -->
+        <div id="step-card-form" class="hidden opacity-0 transition-all duration-500 space-y-6 mt-10">
+            <div class="quiz-card w-full p-8 bg-white border border-gray-200 rounded-xs shadow-md space-y-6 text-left">
+                <div class="text-center space-y-1 pb-4 border-b border-gray-100">
+                    <h3 class="text-2xl font-black text-brand-dark uppercase tracking-tight">Registre d'Incorporació</h3>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Completa les dades per formalitzar la teva proposta</p>
+                </div>
+                  
+                <form id="lead-form-adocat" class="space-y-4 pt-2">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="lead-nombre" class="block text-[10px] font-black uppercase text-gray-500 tracking-wider mb-1">Nom complet</label>
+                            <input type="text" id="lead-nombre" class="w-full border-2 border-gray-100 bg-gray-50/50 p-3 rounded-xs font-semibold text-sm focus:border-brand-green outline-none transition-colors" required placeholder="El teu nom i cognoms...">
+                        </div>
+                        <div>
+                            <label for="lead-email" class="block text-[10px] font-black uppercase text-gray-500 tracking-wider mb-1">Correu electrònic</label>
+                            <input type="email" id="lead-email" class="w-full border-2 border-gray-100 bg-gray-50/50 p-3 rounded-xs font-semibold text-sm focus:border-brand-green outline-none transition-colors" required placeholder="exemple@correu.com">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="lead-telefono" class="block text-[10px] font-black uppercase text-gray-500 tracking-wider mb-1">Telèfon de contacte</label>
+                            <input type="tel" id="lead-telefono" class="w-full border-2 border-gray-100 bg-gray-50/50 p-3 rounded-xs font-semibold text-sm focus:border-brand-green outline-none transition-colors" required placeholder="600 000 000">
+                        </div>
+                        <!-- 🌟 Новое поле по брифу: Выбор провинции Каталонии -->
+                        <div>
+                            <label for="lead-provincia" class="block text-[10px] font-black uppercase text-gray-500 tracking-wider mb-1">Província laboral</label>
+                            <select id="lead-provincia" class="w-full border-2 border-gray-100 bg-gray-50/50 p-3 rounded-xs font-semibold text-sm focus:border-brand-green outline-none transition-colors cursor-pointer" required>
+                                <option value="" disabled selected>Selecciona la teva província...</option>
+                                <option value="Barcelona">Barcelona</option>
+                                <option value="Girona">Girona</option>
+                                <option value="Lleida">Lleida</option>
+                                <option value="Tarragona">Tarragona</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 🌟 Новое поле по брифу: Выбор желаемой роли прямо внутри формы -->
+                    <div>
+                        <label for="lead-role" class="block text-[10px] font-black uppercase text-gray-500 tracking-wider mb-1">Modalitat d'implicació</label>
+                        <select id="lead-role" class="w-full border-2 border-gray-100 bg-gray-50/50 p-3 rounded-xs font-semibold text-sm focus:border-brand-green outline-none transition-colors cursor-pointer" required>
+                            <option value="socio" selected>Vull ser SOCI/A (Accés total i suport legal directe)</option>
+                            <option value="pada">Vull ser PADA (Amic de l'associació, accés bàsic gratuït)</option>
+                            <option value="boletin">Només vull subscriure'm al butlletí mensual</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-start gap-2.5 pt-2">
+                        <input type="checkbox" id="lead-rgpd" class="mt-1 w-4 h-4 accent-brand-green cursor-pointer" required>
+                        <label for="lead-rgpd" class="text-[11px] text-gray-500 font-medium cursor-pointer select-none leading-tight">
+                            Accepto la clàusula de protecció de dades (RGPD) i autoritzo el tractament de la informació per al diagnòstic laboral d'ADOCAT.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full py-4 text-xs font-black uppercase tracking-widest mt-4">
+                        Enviar dades i finalitzar &rarr;
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 🎉 ЭКРАН 5: ФИНАЛЬНЫЙ ЭКРАН УСПЕХА (По умолчанию скрыт) -->
+        <div id="step-card-success" class="hidden opacity-0 transition-all duration-500 space-y-6 text-center">
+            <div class="quiz-container-bento max-w-xl mx-auto p-8 bg-white border border-gray-200 rounded-xs shadow-md space-y-6">
+                <div class="text-5xl text-brand-green">✨</div>
+                <h3 class="text-2xl font-black text-brand-dark uppercase tracking-tight">El teu perfil ja està vinculat</h3>
+                <p class="text-sm text-gray-500 font-medium leading-relaxed">
+                    Les teves respostes han estat emmagatzemades correctament a la base de dades central d'ADOCAT. Hem activat el teu protocol de benvinguda.
+                </p>
+                  
+                <div class="flex flex-col gap-2 pt-2">
+                    <button id="btn-cta-socio" class="btn-primary py-3.5 text-xs font-black uppercase tracking-wider">Veure serveis actius</button>
+                    <button id="btn-cta-colaborar" class="w-full bg-gray-50 text-brand-dark font-black text-xs uppercase tracking-wider py-3.5 rounded-xs border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">Descarregar certificat</button>
+                    <button id="btn-cta-boletin" class="w-full bg-gray-50 text-brand-dark font-black text-xs uppercase tracking-wider py-3.5 rounded-xs border border-gray-200 hover:bg-gray-100 transition-colors cursor-pointer">Sol·licitar trucada</button>
+                      
+                    <button id="btn-reiniciar-quiz" class="w-full mt-4 bg-transparent hover:underline text-gray-400 text-xs font-bold uppercase tracking-widest cursor-pointer border-none">
+                        &larr; Tornar a fer el qüestionari
+                    </button>
+                </div>
+            </div>
+        </div>
+  </main>
+
+  <!-- 🧬 HTML-ШАБЛОНЫ ДЛЯ ДИНАМИЧЕСКОЙ ГЕНЕРАЦИИ (Невидимы для пользователя) -->
+  <template id="question-template">
+      <div class="quiz-card w-full p-8 bg-white border border-gray-200 rounded-xs shadow-xs space-y-6 opacity-0 scale-95 transition-all duration-300 text-left">
+          <h3 class="question-title text-lg md:text-xl font-black text-brand-dark uppercase tracking-tight">
+              <!-- Сюда вставится текст вопроса -->
+          </h3>
+          <!-- Сетка вариантов ответов адаптируется под количество кнопок -->
+          <div class="options-grid grid gap-3 w-full">
+              <!-- Сюда вставятся кнопки вариантов -->
+          </div>
+      </div>
+  </template>
+
+  <template id="button-template">
+      <button class="quiz-btn-option w-full text-left px-5 py-4 border-2 border-gray-100 bg-gray-50/50 hover:bg-gray-50 text-sm md:text-base font-semibold text-brand-dark rounded-xs transition-all cursor-pointer hover:border-gray-300 focus:outline-none">
+          <!-- Сюда вставится текст ответа -->
+      </button>
+  </template>
+
+    <!-- 📑 ПРОФЕССИОНАЛЬНЫЙ ШАБЛОН: СЛУЖЕБНЫЙ ПРОТОКОЛ ALTA DE SOCI -->
+  <template id="template-doc-socio">
+      <div class="w-full border-4 border-double border-gray-800 p-8 md:p-10 bg-white font-serif text-gray-900 space-y-6 shadow-sm select-text relative">
+          <!-- Водяной знак/Печать на фоне -->
+          <div class="absolute right-10 bottom-24 w-32 h-32 border-4 border-dashed border-emerald-700/20 rounded-full flex items-center justify-center text-[10px] font-sans font-black text-emerald-700/20 uppercase tracking-widest rotate-12 pointer-events-none">ADOCAT VALIDAT</div>
+          
+          <!-- Шапка официального бланка -->
+          <div class="flex justify-between items-start border-b-2 border-gray-800 pb-4">
+              <div class="space-y-1">
+                  <h2 class="text-2xl font-black tracking-tight text-gray-900 font-sans uppercase">ASSOCIACIÓ DE DOCENTS OCUPACIONALS DE CATALUNYA</h2>
+                  <p class="text-xs font-sans text-gray-500 font-bold uppercase tracking-wider">DEPARTAMENT JURÍDIC I DE SINDICACIÓ — PROTOCOL REGISTRE: #AD-2026/9482</p>
+              </div>
+              <div class="text-right font-sans text-xs text-gray-400">DATA: 10/09/2026</div>
+          </div>
+
+          <!-- Заголовок документа -->
+          <div class="text-center py-2">
+              <h3 class="text-xl font-black uppercase tracking-wide underline decoration-1 underline-offset-4">FULL D'ALTA INTEGRAL I GARANTIA DE DRETS LABORALS</h3>
+          </div>
+
+          <!-- Текст соглашения (Крупный, строгий шрифт) -->
+          <div class="text-base leading-relaxed space-y-4 font-medium text-justify">
+              <p>Per la present acta oficial, es formalitza l'incorporació del/la docent a la bústia de protecció col·lectiva d'<strong>ADOCAT</strong>. L'associació assumeix formalment la representació i defensa de l'afiliat/da en l'àmbit de la Formació Professional Ocupacional (FPE) a Catalunya.</p>
+              
+              <div class="bg-gray-50 border-l-4 border-gray-800 p-4 font-sans text-sm text-gray-700 space-y-2 rounded-xs">
+                  <p class="font-bold text-gray-900 uppercase tracking-wider text-xs">Clàusules i Drets Actius de l'Afiliat:</p>
+                  <p><strong>1. ASSESSORAMENT LEGAL REU:</strong> Protecció jurídica directa davant d'incompliments salarials, aplicació errònia de convenis col·lectius i detecció activa de la figura fraudulenta del fals autònom en centres homologats pel SOC.</p>
+                  <p><strong>2. CONTROL DE CONTRACTACIÓ:</strong> Auditoria tècnica de les hores lectives, períodes de preparació i processos de subrogació contractual per garantir el compliment de les taules salarials vigents.</p>
+                  <p><strong>3. ACCÉS PRIORITARI A RECURSOS:</strong> Incorporació immediata a la borsa de treball interna i dret d'ús de la base de dades comuna de programacions modulars i exàmens validats.</p>
+              </div>
+
+              <p class="text-sm italic text-gray-600">Es requereix la signatura digital del sol·licitant per activar el protocol d'enllaç de dades amb la Inspecció de Treball. El document PDF original ha estat tramès al correu electrònic facilitat.</p>
+          </div>
+
+          <!-- Блок подписей сторон -->
+          <div class="pt-8 grid grid-cols-2 gap-8 font-sans text-xs font-bold text-center border-t border-gray-100">
+              <div class="space-y-12">
+                  <p class="uppercase tracking-wider text-gray-400">Signatura de l'Afiliat/da</p>
+                  <p class="border-b border-gray-300 mx-auto w-40 pt-4 font-mono font-normal text-gray-400">[Signat Digitalment]</p>
+              </div>
+              <div class="space-y-12">
+                  <p class="uppercase tracking-wider text-gray-400">Departament de Registre ADOCAT</p>
+                  <p class="border-b border-gray-300 mx-auto w-40 pt-4 font-mono font-normal text-emerald-700">✓ Verificat Central</p>
+              </div>
+          </div>
+      </div>
+  </template>
+
+  <!-- 📑 ПРОФЕССИОНАЛЬНЫЙ ШАБЛОН: СЕРТИФИКАТ ДИАГНОСТИКИ -->
+  <template id="template-doc-certificat">
+      <div class="w-full border-4 border-double border-gray-800 p-8 md:p-10 bg-white font-serif text-gray-900 space-y-6 shadow-sm select-text text-center relative">
+          <!-- Официальная кайма -->
+          <div class="absolute inset-2 border border-gray-200 pointer-events-none"></div>
+          
+          <div class="space-y-2 font-sans relative z-10">
+              <p class="text-xs font-black tracking-widest text-gray-400 uppercase">Generalitat de Catalunya — Àmbit Ensenyament FPE</p>
+              <h2 class="text-xl font-black text-gray-900 uppercase tracking-tight">CERTIFICAT D'AVALUACIÓ TÈCNICA LABORAL</h2>
+              <p class="text-[10px] font-mono text-gray-400 uppercase">Codi de Verificació Segura (CVS): CSV-ADOCAT-93821-2026</p>
+          </div>
+
+          <div class="py-6 relative z-10">
+              <p class="text-md italic font-medium text-gray-700">L'òrgan directiu de l'Associació de Docents Ocupacionals de Catalunya fa constar que:</p>
+              <h3 id="cert-user-name" class="text-2xl font-black tracking-tight text-brand-dark uppercase my-4 font-sans border-b-2 border-gray-800 pb-2 max-w-md mx-auto">
+                  <!-- Сюда вставится имя -->
+              </h3>
+              <p class="text-sm font-sans font-bold text-rose-600 uppercase tracking-wider bg-rose-50 p-2 rounded-xs inline-block border border-rose-100" id="cert-status-badge">
+                  DOCENT EN RISC DE PRECARIETAT LABORAL
+              </p>
+          </div>
+
+          <div class="text-sm leading-relaxed max-w-2xl mx-auto text-justify font-medium text-gray-600 pb-4 border-b border-gray-100">
+              Ha completat satisfactoriament el test de diagnòstic auditat per la plataforma central d'<strong>ADOCAT</strong>. Els indicadors recollits mostren desviaments normatius respecte al règim laboral aplicat en els Certificats de Professionalitat obligatoris, existint indicis racionals de vulneració de drets o ús irregular de la subcontractació externa.
+          </div>
+
+          <div class="flex justify-between items-center pt-4 font-sans text-xs text-gray-400 font-semibold px-4">
+              <p>Registre de Control: REG-ADOCAT-2026</p>
+              <p class="text-emerald-700 font-bold">✓ Segell de Seguretat Actiu</p>
+          </div>
+      </div>
+  </template>
+
+    <!-- 💬 ИНТЕРАКТИВНОЕ ОКНО ПОДТВЕРЖДЕНИЯ ОТВЕТА (Без иконок, с процентами) -->
+  <div id="confirm-modal" class="fixed inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 z-50">
+      <div id="confirm-modal-card" class="w-full max-w-sm bg-white border border-gray-200 rounded-xs p-6 shadow-2xl space-y-4 transform scale-95 transition-all duration-300 text-center">
+          <div class="space-y-1">
+              <h4 class="text-md font-black text-brand-dark uppercase tracking-tight">Resposta enregistrada</h4>
+              <p id="confirm-modal-percent" class="text-sm font-bold text-brand-green"></p>
+          </div>
+          <div class="w-full bg-gray-100 h-1.5 overflow-hidden rounded-full">
+              <div id="confirm-modal-bar" class="bg-brand-green h-1.5 w-0 transition-all duration-500 rounded-full"></div>
+          </div>
+          <button id="modal-next-btn" class="w-full bg-brand-green hover:bg-brand-hover text-white font-black text-xs uppercase tracking-widest py-3.5 rounded-xs transition-colors cursor-pointer">
+              Següent pregunta &rarr;
+          </button>
+      </div>
+  </div>
+
+</Layout>
