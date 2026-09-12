@@ -18,8 +18,8 @@ export const POST = async ({ request }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'ADOCAT <onboarding@resend.dev>',
-        to: [email],
+        from: 'onboarding@resend.dev',
+        to: 'nataliya.yanovic@mail.ru',
         subject: "✨ Benvingut/da al butlletí oficial d'ADOCAT",
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; color: #111827;">
