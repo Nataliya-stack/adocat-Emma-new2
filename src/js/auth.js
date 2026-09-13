@@ -126,11 +126,13 @@ if (typeof window !== 'undefined') {
                 <h3 class="text-lg md:text-xl font-black tracking-tight text-brand-dark uppercase my-3 font-sans border-b border-gray-300 pb-1 max-w-md">${currentUserName.toUpperCase()}</h3>
             </div>
 
-            <!-- 📊 ДИНАМИЧЕСКАЯ ТАБЛИЦА ХРОНОЛОГИИ ИЗМЕНЕНИЙ РИСКА -->
-            <div class="space-y-2 font-sans">
+            <!-- 📊 АДАПТИВНАЯ ХРОНОЛОГИЯ ИЗМЕНЕНИЙ РИСКА -->
+            <div class="space-y-3 font-sans">
                 <p class="text-[10px] font-black text-gray-400 uppercase tracking-wider">Cronologia de Seguretat Normativa Contractual:</p>
-                <div class="w-full overflow-x-auto border border-gray-200 rounded-xs">
-                    <table class="w-full text-left text-[11px] font-semibold text-gray-600 bg-gray-50/50 min-w-125">
+                
+                <div class="border border-gray-200 rounded-xs overflow-hidden">
+                    <!-- НАСТОЯЩАЯ ТАБЛИЦА (ПОКАЗЫВАЕТСЯ ТОЛЬКО НА ПК) -->
+                    <table class="hidden md:table w-full text-left text-[11px] font-semibold text-gray-600 bg-gray-50/50">
                         <thead class="bg-gray-100 text-gray-800 text-[10px] uppercase font-black border-b border-gray-200">
                             <tr>
                                 <th class="p-2.5 whitespace-nowrap">Període / Data</th>
@@ -152,10 +154,38 @@ if (typeof window !== 'undefined') {
                             <tr>
                                 <td class="p-2.5 font-mono text-gray-400 whitespace-nowrap">11/09/2026</td>
                                 <td class="p-2.5">Blindatge Actiu ADOCAT — Intervenció Jurídica</td>
-                                <td class="p-2.5 text-center"><span class="px-1.5 py-0.5 bg-blue-50 text-[#007cc2] border border-blue-100 text-[9px] font-black rounded-xs whitespace-nowrap">🛡️ AUDITAT</span></td>
+                                <td class="p-2.5 text-center"><span class="px-1.5 py-0.5 bg-blue-50 text-brand-blue border border-blue-100 text-[9px] font-black rounded-xs whitespace-nowrap">🛡️ AUDITAT</span></td>
                             </tr>
                         </tbody>
                     </table>
+
+                    <!-- КАРТОЧКИ ДЛЯ МОБИЛЬНЫХ (ПОКАЗЫВАЮТСЯ ТОЛЬКО НА ТЕЛЕФОНАХ) -->
+                    <div class="block md:hidden bg-white divide-y divide-gray-100 p-1 text-[11px]">
+                        <!-- Строка 1 -->
+                        <div class="p-3 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="font-mono text-gray-400 font-bold">12/01/2026</span>
+                                <span class="px-1.5 py-0.5 bg-emerald-50 text-brand-green border border-emerald-100 text-[9px] font-black rounded-xs">✓ PROTEGIT</span>
+                            </div>
+                            <div class="text-gray-700 font-medium">Alta Regim General — Contracte Inicial Consolidat</div>
+                        </div>
+                        <!-- Строка 2 -->
+                        <div class="p-3 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="font-mono text-gray-400 font-bold">04/05/2026</span>
+                                <span class="px-1.5 py-0.5 bg-rose-50 text-rose-600 border border-rose-100 text-[9px] font-black rounded-xs">⚠️ RISC CRÍTIC</span>
+                            </div>
+                            <div class="text-gray-700 font-medium">Canvi a Mòdul Autònom — Sospita de Fals Autònom</div>
+                        </div>
+                        <!-- Строка 3 -->
+                        <div class="p-3 space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="font-mono text-gray-400 font-bold">11/09/2026</span>
+                                <span class="px-1.5 py-0.5 bg-blue-50 text-brand-blue border border-blue-100 text-[9px] font-black rounded-xs">🛡️ AUDITAT</span>
+                            </div>
+                            <div class="text-gray-700 font-medium">Blindatge Actiu ADOCAT — Intervenció Jurídica</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
