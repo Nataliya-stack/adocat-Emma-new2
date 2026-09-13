@@ -10,7 +10,9 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
   const sortedNoticies = allNoticies.sort((a: any, b: any) => {
     const parseDate = (dateStr: string) => {
       if (!dateStr) return new Date(0);
-      const [day, month, year] = dateStr.split('/');
+      // Превращаем дефисы из админки в слэши для безопасного разделения текста
+      const cleanDate = dateStr.replaceAll('-', '/');
+      const [day, month, year] = cleanDate.split('/');
       return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
     };
     return parseDate(b.data.date).getTime() - parseDate(a.data.date).getTime();
