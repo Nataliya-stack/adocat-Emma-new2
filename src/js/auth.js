@@ -130,7 +130,7 @@ if (typeof window !== 'undefined') {
             <div class="space-y-2 font-sans">
                 <p class="text-[10px] font-black text-gray-400 uppercase tracking-wider">Cronologia de Seguretat Normativa Contractual:</p>
                 <div class="w-full overflow-x-auto border border-gray-200 rounded-xs">
-                    <table class="w-full text-left text-[11px] font-semibold text-gray-600 bg-gray-50/50 min-w-[500px]">
+                    <table class="w-full text-left text-[11px] font-semibold text-gray-600 bg-gray-50/50 min-w-125">
                         <thead class="bg-gray-100 text-gray-800 text-[10px] uppercase font-black border-b border-gray-200">
                             <tr>
                                 <th class="p-2.5 whitespace-nowrap">Període / Data</th>
