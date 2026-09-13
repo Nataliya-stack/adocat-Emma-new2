@@ -129,30 +129,30 @@ if (typeof window !== 'undefined') {
             <!-- 📊 ДИНАМИЧЕСКАЯ ТАБЛИЦА ХРОНОЛОГИИ ИЗМЕНЕНИЙ РИСКА -->
             <div class="space-y-2 font-sans">
                 <p class="text-[10px] font-black text-gray-400 uppercase tracking-wider">Cronologia de Seguretat Normativa Contractual:</p>
-                <div class="overflow-x-auto border border-gray-200 rounded-xs">
-                    <table class="w-full text-left text-[11px] font-semibold text-gray-600 bg-gray-50/50">
+                <div class="w-full overflow-x-auto border border-gray-200 rounded-xs">
+                    <table class="w-full text-left text-[11px] font-semibold text-gray-600 bg-gray-50/50 min-w-[500px]">
                         <thead class="bg-gray-100 text-gray-800 text-[10px] uppercase font-black border-b border-gray-200">
                             <tr>
-                                <th class="p-2.5">Període / Data</th>
+                                <th class="p-2.5 whitespace-nowrap">Període / Data</th>
                                 <th class="p-2.5">Estat contractual SOC</th>
-                                <th class="p-2.5 text-center">Nivell de Risc</th>
+                                <th class="p-2.5 text-center whitespace-nowrap">Nivell de Risc</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
                             <tr>
-                                <td class="p-2.5 font-mono text-gray-400">12/01/2026</td>
+                                <td class="p-2.5 font-mono text-gray-400 whitespace-nowrap">12/01/2026</td>
                                 <td class="p-2.5">Alta Regim General — Contracte Inicial Consolidat</td>
-                                <td class="p-2.5 text-center"><span class="px-1.5 py-0.5 bg-emerald-50 text-brand-green border border-emerald-100 text-[9px] font-black rounded-xs">✓ PROTEGIT</span></td>
+                                <td class="p-2.5 text-center"><span class="px-1.5 py-0.5 bg-emerald-50 text-brand-green border border-emerald-100 text-[9px] font-black rounded-xs whitespace-nowrap">✓ PROTEGIT</span></td>
                             </tr>
                             <tr>
-                                <td class="p-2.5 font-mono text-gray-400">04/05/2026</td>
+                                <td class="p-2.5 font-mono text-gray-400 whitespace-nowrap">04/05/2026</td>
                                 <td class="p-2.5">Canvi a Mòdul Autònom — Sospita de Fals Autònom</td>
-                                <td class="p-2.5 text-center"><span class="px-1.5 py-0.5 bg-rose-50 text-rose-600 border border-rose-100 text-[9px] font-black rounded-xs">⚠️ RISC CRÍTIC</span></td>
+                                <td class="p-2.5 text-center"><span class="px-1.5 py-0.5 bg-rose-50 text-rose-600 border border-rose-100 text-[9px] font-black rounded-xs whitespace-nowrap">⚠️ RISC CRÍTIC</span></td>
                             </tr>
                             <tr>
-                                <td class="p-2.5 font-mono text-gray-400">11/09/2026</td>
+                                <td class="p-2.5 font-mono text-gray-400 whitespace-nowrap">11/09/2026</td>
                                 <td class="p-2.5">Blindatge Actiu ADOCAT — Intervenció Jurídica</td>
-                                <td class="p-2.5 text-center"><span class="px-1.5 py-0.5 bg-blue-50 text-[#007cc2] border border-blue-100 text-[9px] font-black rounded-xs">🛡️ AUDITAT</span></td>
+                                <td class="p-2.5 text-center"><span class="px-1.5 py-0.5 bg-blue-50 text-[#007cc2] border border-blue-100 text-[9px] font-black rounded-xs whitespace-nowrap">🛡️ AUDITAT</span></td>
                             </tr>
                         </tbody>
                     </table>
