@@ -9,6 +9,9 @@ const {
     title, 
     description = "Associació de Docents Ocupacionals de Catalunya. Defensem els drets laborals dels formadors de la FP i llitem contra el fals autònom." 
 } = Astro.props;
+
+import { pwaInfo } from 'virtual:astro-pwa';
+
 ---
 
 <!DOCTYPE html>
@@ -21,7 +24,6 @@ const {
     </script>
 
     <meta charset="UTF-8">
-    <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- 🎯 SEO META TAGS -->
@@ -46,7 +48,7 @@ const {
             font-family: 'Inter', sans-serif;
         }
     </style>
-
+    { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 </head>
 
 <body class="bg-brand-bg text-brand-dark min-h-screen flex flex-col font-sans antialiased">
