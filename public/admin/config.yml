@@ -1,8 +1,6 @@
 backend:
   name: github
-  repo: Nataliya-stack/adocat-Emma-new2
   branch: main
-  site_url: https://netlify.app
   
 #local_backend: true
 media_folder: "public/assets"
