@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Nataliya-stack/adocat-Emma-new2
   branch: main
   
 #local_backend: true
