@@ -7,9 +7,8 @@ import defaultLogo from '../../assets/logo-full-adocat.png';
 export async function getStaticPaths() {
   const allNoticies = await getCollection('noticies');
   return allNoticies.map((post: any) => {
-    const cleanId = post.id.replace('.md', '');
     return {
-      params: { id: cleanId },
+      params: { id: post.id },
       props: { post },
     };
   });
