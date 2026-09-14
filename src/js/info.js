@@ -714,14 +714,23 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('close-answers-btn')?.addEventListener('click', cerrarExpediente);
     document.getElementById('close-answers-bottom-btn')?.addEventListener('click', cerrarExpediente);
 
-    document.querySelectorAll('.filter-role-btn').forEach(btn => {
+        document.querySelectorAll('.filter-role-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.filter-role-btn').forEach(b => {
                 b.className = "px-4 py-2 text-xs font-extrabold rounded-xs border-2 border-gray-200 bg-white text-gray-600 hover:border-gray-300 cursor-pointer transition-all";
             });
             this.className = "px-4 py-2 text-xs font-extrabold rounded-xs border-2 border-brand-green bg-brand-green text-white cursor-pointer transition-all";
+            
             filtroRolActual = this.getAttribute('data-role') || 'all';
-            renderizarTabla(filtroRolActual, criterioSortActual, DOM_CACHE.tbody, DOM_CACHE.mobileList);
+
+            // Умное переключение: если мы были в жалобах или поддержке, 
+            // принудительно возвращаем админку на вкладку пользователей (leads)
+            if (pestañaActual !== 'leads') {
+                pestañaActual = ''; // Сбрасываем старый флаг, чтобы сработал триггер
+                cambiarPestaña('leads');
+            } else {
+                renderizarTabla(filtroRolActual, criterioSortActual, DOM_CACHE.tbody, DOM_CACHE.mobileList);
+            }
         });
     });
 
@@ -731,8 +740,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('export-csv-btn')?.addEventListener('click', ejecutarExportacionCSV);
-    // ⚡ Переключение табов администратора (Leads / Complaints / Support)
-    const btnLeads = document.getElementById('tab-btn-leads');
+       // ⚡ Переключение табов администратора (Complaints / Support)
     const btnComplaints = document.getElementById('tab-btn-complaints');
     const btnSupport = document.getElementById('tab-btn-support');
 
@@ -742,7 +750,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const headerstr = document.querySelector('#admin-modal table thead tr');
 
-        [btnLeads, btnComplaints, btnSupport].forEach(b => {
+        [btnComplaints, btnSupport].forEach(b => {
             if (b) {
                 b.classList.replace('bg-brand-green', 'bg-white');
                 b.classList.replace('text-white', 'text-gray-600');
@@ -751,10 +759,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (pestañaActual === 'leads') {
-            btnLeads?.classList.replace('bg-white', 'bg-brand-green');
-            btnLeads?.classList.replace('text-gray-600', 'text-white');
-            btnLeads?.classList.replace('border-gray-200', 'border-brand-green');
-
             if (headerstr) {
                 headerstr.innerHTML = `
                     <th class="p-4">Data</th>
@@ -813,9 +817,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    btnLeads?.addEventListener('click', () => cambiarPestaña('leads'));
     btnComplaints?.addEventListener('click', () => cambiarPestaña('complaints'));
     btnSupport?.addEventListener('click', () => cambiarPestaña('support'));
+
 
     // Просмотр детального описания жалоб/обращений (Интеллектуальные заголовки)
     const abrirDetalleDenuncia = (compId) => {

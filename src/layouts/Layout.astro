@@ -206,15 +206,17 @@ const {
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4 bg-gray-50 p-4 rounded-xs border border-gray-200">
-                    <div class="flex flex-wrap gap-2 items-center w-full md:w-auto">
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-4 bg-gray-50 p-4 rounded-xs border border-gray-200">
+                    <div class="flex flex-wrap gap-2 items-center w-full lg:w-auto">
                         <span class="text-xs font-black uppercase text-gray-500 tracking-wider mr-2">Filtrar per implicació:</span>
                         <button class="filter-role-btn px-4 py-2 text-xs font-extrabold rounded-xs border-2 border-brand-green bg-brand-green text-white cursor-pointer transition-all" data-role="all">TOTS ELS PERFILS</button>
                         <button class="filter-role-btn px-4 py-2 text-xs font-extrabold rounded-xs border-2 border-gray-200 bg-white text-gray-600 hover:border-gray-300 cursor-pointer transition-all" data-role="socio">SOCI/A</button>
                         <button class="filter-role-btn px-4 py-2 text-xs font-extrabold rounded-xs border-2 border-gray-200 bg-white text-gray-600 hover:border-gray-300 cursor-pointer transition-all" data-role="pada">PADA</button>
+                        <!-- Кнопка подписки на новости теперь логично перенесена сюда наверх -->
+                        <button class="filter-role-btn px-4 py-2 text-xs font-extrabold rounded-xs border-2 border-gray-200 bg-white text-gray-600 hover:border-gray-300 cursor-pointer transition-all" data-role="butlleti">✨ BUTLLETÍ</button>
                     </div>
 
-                    <div class="flex items-center gap-3 w-full md:w-auto justify-end">
+                    <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full lg:w-auto justify-end">
                         <span class="text-xs font-black uppercase text-gray-500 tracking-wider">Ordena per:</span>
                         <select id="sort-leads-select" class="bg-white border-2 border-gray-200 p-2 rounded-xs text-xs font-bold text-gray-700 outline-none focus:border-brand-green cursor-pointer">
                             <option value="date-desc" selected>Data: Més recents primero</option>
@@ -228,18 +230,15 @@ const {
                     </div>
                 </div>
 
-                <!-- 🔄 ПЕРЕКЛЮЧАТЕЛЬ ВКЛАДОК В АДМИНКЕ -->
+                <!-- 🔄 ПЕРЕКЛЮЧАТЕЛЬ ВКЛАДОК В АДМИНКЕ (Теперь без кнопки Leads) -->
                 <div class="flex flex-col md:flex-row items-stretch md:items-center gap-2 w-full p-4 border-b border-gray-100 pb-4 mb-6">
-                    <button id="tab-btn-leads" class="px-5 py-2 text-xs font-black rounded-xs border-2 border-brand-green bg-brand-green text-white cursor-pointer transition-all uppercase tracking-wider shadow-xs">
-                       👥 Leads
-                    </button>
-                    <button id="tab-btn-complaints" class="px-5 py-2 text-xs font-black rounded-xs border-2 border-gray-200 bg-white text-gray-600 hover:border-gray-300 cursor-pointer transition-all uppercase tracking-wider shadow-xs">
+                    <button id="tab-btn-complaints" class="px-5 py-2 text-xs font-black rounded-xs border-2 border-brand-green bg-brand-green text-white cursor-pointer transition-all uppercase tracking-wider shadow-xs">
                        ⚠️ Denúncies
                     </button>
                     <button id="tab-btn-support" class="px-5 py-2 text-xs font-black rounded-xs border-2 border-gray-200 bg-white text-gray-600 hover:border-gray-300 cursor-pointer transition-all uppercase tracking-wider shadow-xs">
                        🆘 Suport
                     </button>
-                    <a href="/admin" target="_blank" class="px-4 py-2 border border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100 font-black text-xs uppercase tracking-wider rounded-xs transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-sm">
+                    <a href="/admin" target="_blank" class="px-4 py-2 border border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100 font-black text-xs uppercase tracking-wider rounded-xs transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-sm md:ml-auto">
                        ✍️ Gestionar Contingut (CMS)
                     </a>
                 </div>
