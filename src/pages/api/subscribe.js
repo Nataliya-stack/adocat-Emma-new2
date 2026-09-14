@@ -1,16 +1,16 @@
+import { supabase } from '../../lib/supabase'; // Импортируем вашу базу данных
+
 export const prerender = false;
 export const POST = async ({ request }) => {
   try {
-    // Получаем email, который пользователь ввел на фронтенде
     const { email } = await request.json();
 
     if (!email) {
       return new Response(JSON.stringify({ message: 'Email requerit' }), { status: 400 });
     }
 
-    // Делаем защищенный запрос от имени сервера Netlify к шлюзу Resend
-    // УДАЛИТЕ ПРОБЕЛЫ в ссылке ниже при вставке в проект!
-    const resendResponse = await fetch('https://api.resend.com/emails', {
+    // 1. Делаем запрос к почтовому шлюзу Resend
+    const resendResponse = await fetch('https://resend.com', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
@@ -18,7 +18,7 @@ export const POST = async ({ request }) => {
       },
       body: JSON.stringify({
         from: 'info@nataliyadev.com',
-        to: email,
+        to: email, // Отправляем письмо именно подписчику!
         subject: "✨ Benvingut/da al butlletí oficial d'ADOCAT",
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; color: #111827;">
@@ -35,6 +35,24 @@ export const POST = async ({ request }) => {
     });
 
     if (resendResponse.ok) {
+      // 2. ЕСЛИ ПИСЬМО УШЛО: Автоматически сохраняем подписчика в базу данных Supabase
+      // Замените 'profiles' или 'users' на точное имя вашей таблицы пользователей, если оно отличается
+      const { error } = await supabase
+        .from('leads') 
+        .insert([
+          { 
+            email: email, 
+            role: 'butlleti', 
+            full_name: 'Subscripció Butlletí', // Пометка в админке вместо имени
+            created_at: new Date().toISOString()
+          }
+        ]);
+
+      if (error) {
+        console.error('Error guardando en Supabase:', error.message);
+        // Не блокируем пользователя, даже если база споткнулась, главное — письмо ушло
+      }
+
       return new Response(JSON.stringify({ success: true }), { status: 200 });
     } else {
       const errorData = await resendResponse.json();
