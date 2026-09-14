@@ -46,7 +46,8 @@ export const POST = async ({ request }) => {
         .insert([
           { 
             email: email, 
-            app_origen: 'adocat', // Оставляем, чтобы вы знали, откуда пришел лид
+            app_origen: 'adocat',
+            modalidad_implicacion: 'butlleti', // ЭТО ПОЛЕ ОЖИДАЕТ ВАША АДМИНКА!
             created_at: new Date().toISOString()
           }
         ]);

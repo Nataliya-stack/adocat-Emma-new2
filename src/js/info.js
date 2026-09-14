@@ -655,6 +655,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.getElementById('submit-password-btn')?.addEventListener('click', verificarPassword);
+    
     DOM_CACHE.passwordInput?.addEventListener('keydown', (e) => { if (e.key === 'Enter') verificarPassword(); });
     // ⚡ Просмотр детальных ответов лида из таблицы
     const abrirExpedienteRespuestas = async (dbId) => {

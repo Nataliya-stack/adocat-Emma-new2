@@ -202,7 +202,7 @@ if (typeof window !== 'undefined') {
       openLocalModal(htmlCertificat);
     });
 
-        // Кнопка 3: Связь с асессором / Сообщить об изменениях (Исправлено под Supabase v2)
+    // Кнопка 3: Связь с асессором / Сообщить об изменениях (Исправлено под Supabase v2)
     btnNotificar?.addEventListener('click', (e) => {
       e.preventDefault();
       const htmlSupport = `
