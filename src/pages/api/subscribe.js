@@ -15,7 +15,7 @@ export const POST = async ({ request }) => {
     }
 
     // 1. Отправляем красивое письмо через шлюз Resend
-    const resendResponse = await fetch('https://resend.com', {
+    const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
