@@ -1,4 +1,9 @@
-import { supabase } from '../../lib/supabase'; // Импортируем вашу базу данных
+import { createClient } from '@supabase/supabase-js';
+
+// Инициализируем чистый клиент Supabase для работы на сервере Netlify
+const supabaseUrl = "https://pbxmhrwhebegnejjzksp.supabase.co";
+const supabaseAnonKey = "sb_publishable_Fg8_-r_e4Ef0rQDIzqWYyg_oK9Rsek2";
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export const prerender = false;
 export const POST = async ({ request }) => {
@@ -9,7 +14,7 @@ export const POST = async ({ request }) => {
       return new Response(JSON.stringify({ message: 'Email requerit' }), { status: 400 });
     }
 
-    // 1. Делаем запрос к почтовому шлюзу Resend
+    // 1. Отправляем красивое письмо через шлюз Resend
     const resendResponse = await fetch('https://resend.com', {
       method: 'POST',
       headers: {
@@ -18,7 +23,7 @@ export const POST = async ({ request }) => {
       },
       body: JSON.stringify({
         from: 'info@nataliyadev.com',
-        to: email, // Отправляем письмо именно подписчику!
+        to: email, 
         subject: "✨ Benvingut/da al butlletí oficial d'ADOCAT",
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; color: #111827;">
@@ -35,22 +40,20 @@ export const POST = async ({ request }) => {
     });
 
     if (resendResponse.ok) {
-      // 2. ЕСЛИ ПИСЬМО УШЛО: Автоматически сохраняем подписчика в базу данных Supabase
-      // Замените 'profiles' или 'users' на точное имя вашей таблицы пользователей, если оно отличается
+      // 2. Если письмо ушло, сохраняем подписчика напрямую в таблицу leads базы Supabase
       const { error } = await supabase
         .from('leads') 
         .insert([
           { 
             email: email, 
             role: 'butlleti', 
-            full_name: 'Subscripció Butlletí', // Пометка в админке вместо имени
+            full_name: 'Subscripció Butlletí',
             created_at: new Date().toISOString()
           }
         ]);
 
       if (error) {
         console.error('Error guardando en Supabase:', error.message);
-        // Не блокируем пользователя, даже если база споткнулась, главное — письмо ушло
       }
 
       return new Response(JSON.stringify({ success: true }), { status: 200 });
