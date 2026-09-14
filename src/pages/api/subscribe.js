@@ -46,8 +46,7 @@ export const POST = async ({ request }) => {
         .insert([
           { 
             email: email, 
-            role: 'butlleti', 
-            full_name: 'Subscripció Butlletí',
+            app_origen: 'adocat', // Оставляем, чтобы вы знали, откуда пришел лид
             created_at: new Date().toISOString()
           }
         ]);
