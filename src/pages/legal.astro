@@ -7,73 +7,382 @@ import Layout from "../layouts/Layout.astro";
   <main class="w-full bg-white min-h-[calc(100vh-320px)] pb-12 pt-24 px-4 md:px-8">
     <div class="max-w-3xl mx-auto font-sans text-gray-700">
       
-      <!-- 1. SECCIÓ: AVÍS LEGAL -->
-      <section id="avis" class="hidden target:block space-y-4">
-        <!-- Ссылка возврата для мобильных устройств в стиле новостей -->
+            <!-- 1. SECCIÓ: AVÍS LEGAL -->
+      <section id="avis" class="hidden target:block space-y-4 scroll-mt-32">
         <div class="pb-2">
             <a href="/" class="inline-flex items-center gap-2 font-sans text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-emerald-600 transition-colors group">
                 <span class="transform group-hover:-translate-x-0.5 transition-transform">←</span> 
-                Tornar al meu compte
+                Tornar a l'inici
             </a>
         </div>
+
         <span class="px-2 py-0.5 border border-brand-green bg-emerald-50 text-brand-green text-[10px] font-black uppercase tracking-wider rounded-xs">
-          Regulació
+          Regulació Oficial LSSI-CE
         </span>
+        
         <h1 class="text-2xl font-black uppercase tracking-tight text-brand-dark pt-1">
-          Avís Legal
+          Avís Legal i Termes d'Ús
         </h1>
-        <p class="text-sm leading-relaxed text-justify">
-          En compliance de l'article 10 de la Llei 34/2002, de 11 de juliol, de Serveis de la Societat de la Informació i Comerç Electrònic (LSSI-CE), s'informa que aquest lloc web és gestionat per l'<strong>Associació de Docents de Formació Ocupacional de Catalunya (ADOCAT)</strong>. 
-        </p>
-        <p class="text-sm leading-relaxed text-justify">
-          L'accés i ús d'aquest portal atribueix la condició d'usuari, acceptant des de dit accés els termes d'ús aquí reflectits. El contingut d'aquesta web té un caràcter purament informatiu i de suport al col·lectiu docent de la FPE.
-        </p>
+        
+        <div class="text-sm leading-relaxed text-justify space-y-4 text-gray-600">
+          <p>
+            Podem garantir que **us trobeu en un espai 100% segur**. Per això, donant compliment amb el deure d'informació recollit a l'article 10 de la Llei 34/2002, de 11 de juliol, de Serveis de la Societat de la Informació i del Comerç Electrònic, a continuació es fa constar:
+          </p>
+
+          <div class="bg-gray-50 p-4 border border-gray-200 rounded-xs space-y-1 font-sans text-xs text-gray-700">
+            <p class="font-bold text-gray-900 uppercase tracking-wider text-[10px] pb-1 border-b border-gray-200 mb-2">Dades Identificatives del Responsable:</p>
+            <p><strong>• Identitat del Responsable:</strong> Associació de Docents de Formació Professional Ocupacional de Catalunya (ADOCAT)</p>
+            <p><strong>• NIF / CIF:</strong> G-67492018</p>
+            <p><strong>• Direcció Postal:</strong> C/ de Sardenya, nº 229, 08013 — Barcelona</p>
+            <p><strong>• Correu Electrònic:</strong> info@nataliyadev.com</p>
+            <p><strong>• Activitat:</strong> Formadora ocupacional, suport legal i defensa dels drets laborals col·lectius de la FP a Catalunya.</p>
+          </div>
+
+          <p>
+            En aquest espai, l'usuari podrà trobar toda la informació relativa als térmens i condicions legals que defineixen les relacions entre els usuaris i jo com a responsable d'aquesta web. Com a usuari, és important que coneguis aquestos térmens abans de continuar la teva navegació.
+          </p>
+
+          <p>
+            <strong>ADOCAT</strong> com a responsable d'aquesta web, assumeix el compromís de processar la informació de els nostres usuaris i clients amb plenes garanties i complir amb els requisits nacionals i europeus que regulen la recopilació i ús de les dades personals de estos usuaris.
+          </p>
+
+          <p>
+            Aquesta web, per tant, compleix rigurosament amb la Llei Orgànica 15/1999, de 13 de desembre, de Protecció de Dades de Caràcter Personal (LOPD), i amb el Reial Decret 1720/2007, de 21 de desembre, conegut com el Reglament de desenvolupament de la LOPD. Compleix també amb el Reglament (UE) 2016/679 del Parlament Europeu i del Consell de 27 d'abril de 2016 relatiu a la protecció de les persones físiques (RGPD), així com com amb la Llei 34/2002, de 11 de juliol, de Serveis de la Societat de la Informació i Comerç Electrònic (LSSICE o LSSI).
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Condicions generals de ús:</p>
+          <p>
+            Les presents Condicions Generals regulen l'ús (incloent-hi el mer accés) de les pàgines de web, integrants del lloc web de l'associació ADOCAT inclosos els continguts i serveis posats a disposició en elles. Toda persona que accedeixi a la web accepta sotmetre's a les Condicions Generals vigents en cada moment de este portal.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Dades personals que recabo i cómo lo hago:</p>
+          <p>
+            Llegir <a href="#privacitat" class="text-emerald-600 underline hover:text-emerald-700 font-bold font-sans text-xs">Política de Privacitat</a>.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Compromisos y obligacions de els usuaris:</p>
+          <p>
+            L'usuari queda informat, i accepta, que l'accés a la present web no suposa, en modo algun, l'inici de una relació comercial amb l'associació. De esta forma, l'usuari es compromet a utilitzar el lloc web, els seus serveis i continguts sense contravenir la legislació vigent, la bona fe i l'ordre públic.
+          </p>
+          <p>
+            Queda prohibit l'ús de la web, amb fins il·lícits o lesius, o que, de qualsevol forma, puguin causar perjudici o impedir el normal funcionament del lloc web. Respecte de els continguts de esta web, es prohibeix:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-xs">
+            <li>La seva reproducció, distribució o modificació, total o parcial, a menys que es compta amb la meva autorització com a legítim titular;</li>
+            <li>Qualsevol vulneració de els drets del prestador o de mi com a legítim titular;</li>
+            <li>La seva utilització per a fins comercials o publicitaris.</li>
+          </ul>
+          <p>
+            En la utilització de la web, l'usuari es compromet a no dur a cabo **ninguna conducta** que pogués danyar la imatge, els interessos i els drets de l'associació o de tercers o que pogués danyar, inutilitzar o sobrecarregar el portal o que impedís, de qualsevol forma, la normal utilització de la web.
+          </p>
+          <p>
+            No obstant, l'usuari ha de ser conscientious de que les mesures de seguretat de els sistemes informàtics en Internet no són enterament fiables i que, per tant, no es pot garantir la inexistència de malware o altres elements que puguin produir alteracions en els sistemes informàtics (software i hardware) de l'usuari o en els seus documents electrònics i fitxers continguts en els mateixos encara que poso tots els mitjans necessaris i les mesures de seguretat oportunes per evitar la presència de estos elements dañinos.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Mesures de seguretat:</p>
+          <p>
+            Les dades personals comunicades per l'usuari a l'associació poden ser emmagatzemades en bases de dades automatitzades o no, la seva titularitat corresponent en exclusiva a l'associació, assumint és d'aquesta totes les mesures d'índole tècnica, organitzativa i de seguretat que garanteixen la confidencialitat, integritat i qualitat de la informació contenida en les mateixes d'acord amb lo establert en la normativa vigent en protecció de dades. La comunicació entre els usuaris i la web utilitza un canal segur, i els dades transmesos són xifrats gràcies a protocols a https, per tant, garantixo les millors condicions de seguretat per a que la confidencialitat de els usuaris estigui garantida.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Plataforma de resolució de conflictes:</p>
+          <p>
+            Pongo també a disposició dels usuaris la plataforma de resolució de litigis que facilita la Comissió Europea i que es troba disponible en el següent enllaç: <a href="http://europa.eu" target="_blank" class="text-emerald-600 underline hover:text-emerald-700">http://europa.eu</a>
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Drets de propietat intel·lectual i industrial:</p>
+          <p>
+            En virtut de lo disposat en els articles 8 i 32.1, paràgraf segon, de la Llei de Propietat Intel·lectual, queden expressament prohibides la reproducció, la distribució i la comunicació pública, inclosa la seva modalitat de posada a disposició, de la totalitat o part de els continguts de aquesta pàgina web, amb fins comercials, en qualsevol suport i per qualsevol mitjà tècnic, sense l'autorització de l'associació. L'usuari es compromet a respectar els drets de Propietat Intel·lectual i Industrial titularitat de l'associació.
+          </p>
+          <p>
+            L'usuari coneix i accepta que la totalitat del lloc web, conteniendo sense caràcter exhaustiu el text, software, continguts (incloent estructura, selecció, ordenació i presentació de els mateixos) podcast, fotografies, material audiovisual i gràfics, està protegida per marques, drets de autor i altres drets legítims, d'acord amb els tractats internacionals en els quals Espanya és part i altres drets de propietat i lleis de Espanya.
+          </p>
+          <p>
+            En el cas de que un usuari o un tercer consideren que se ha produït una violació de els seus legítims drets de propietat intel·lectual per la introducció de un determinat contingut en la web, demanarà notificar dita circumstància a l'associació indicant: dades personals del interessat titular de els drets presumptament infringits, o indicar la representació amb la que actua; senyalar els continguts protegits i la seva ubicació en la web, la acreditació de els drets de propietat intel·lectual senyalats i declaració expressa de veracitat.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Enlaces externos:</p>
+          <p>
+            Les pàgines de la web proporcionen enllaços a altres llocs webs propis i continguts que són propietat de tercers tales com: contingut de outros blogs, herramientas i recursos.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Exclusió de garanties i responsable:</p>
+          <p>
+            L'associació no atorga ninguna garantia ni se hace responsable, en cap cas, de els danys i perjudicis de qualsevol naturalesa que poguessin traer causa de: la falta de disponibilitat, manteniment i efectiu funcionament de la web; la existència de malware, programes maliciosos o lesius; el ús il·lícit, negligent, fraudulent o contrari a aquest Avís Legal; la falta de licitud, qualitat, fiabilitat, utilitat i disponibilitat de els serveis prestats per tercers. El prestador no se hace responsable sota ningún concepte de els danys que poguessin dimanar del ús il·legal o indegut de la present pàgina web.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Ley aplicable y jurisdicció:</p>
+          <p>
+            Amb caràcter general les relacions entre l'associació amb els usuaris de els seus serveis telemàtics, presents en aquesta web es troben sotmeses a la legislació i jurisdicció espanyoles i a els tribunals competents de Barcelona.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Contacto:</p>
+          <p>
+            En cas de que qualsevol usuari tingués alguna dubte sobre aquestes Condicions legals o qualsevol comentari sobre el portal, per favor dirígi's a l'associació enviant un correu electrònic a info@nataliyadev.com.
+          </p>
+          <p class="text-right text-[10px] text-gray-400 italic pt-4">
+            El avís legal ha sido actualizado por última vez el 14-09-2026.
+          </p>
+        </div>
       </section>
 
       <!-- 2. SECCIÓ: PRIVACITAT -->
-      <section id="privacitat" class="hidden target:block space-y-4">
-        <!-- Ссылка возврата для мобильных устройств в стиле новостей -->
+      <section id="privacitat" class="hidden target:block space-y-4 scroll-mt-32">
         <div class="pb-2">
             <a href="/" class="inline-flex items-center gap-2 font-sans text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-emerald-600 transition-colors group">
                 <span class="transform group-hover:-translate-x-0.5 transition-transform">←</span> 
-                Tornar al meu compte
+                Tornar a l'inici
             </a>
         </div>
+
         <span class="px-2 py-0.5 border border-blue-200 bg-blue-50 text-blue-700 text-[10px] font-black uppercase tracking-wider rounded-xs">
-          RGPD / LOPD
+          Protecció de Dades — RGPD
         </span>
+        
         <h2 class="text-2xl font-black uppercase tracking-tight text-brand-dark pt-1">
           Política de Privacitat
         </h2>
-        <p class="text-sm leading-relaxed text-justify">
-          D'acord amb el Reglament General de Protecció de Dades (RGPD) i la Llei Orgànica 3/2018 (LOPDGDD), ADOCAT garanteix que les dades personals facilitades a través dels formularis de contacte, bústia d'alertes o l'àrea privada seran tractades de forma totalment confidential.
-        </p>
-        <p class="text-sm leading-relaxed text-justify font-mono bg-gray-50 p-3 rounded-xs border border-gray-100">
-          <strong>Finalitat del tractament:</strong> Gestió d'afiliacions, assessorament jurídic i laboral, i tramitació de consultes internes. Les dades no seran cedides a terceers excepte obligació legal o sota el consentiment exprés del docent.
-        </p>
+        
+        <div class="text-sm leading-relaxed text-justify space-y-4 text-gray-600">
+          <p>
+            Aquesta política de privacitat estableix la forma en què es van a gestionar les dades personals en aquesta web. És imprescindible que la leas i acceptes abans de seguir navegant.
+          </p>
+          <p>
+            En aquesta declaració de privacitat s'explica quines dades personals recopilem de els nostres usuaris i cómo les utilitzem. Et convidem a llegir detenidament aquestos térmens abans de facilitar les teves dades personals en aquesta web. Els majors de tretze anys podran registrar-se com a usuaris sense el previ consentiment de els seus pares o tutors.
+          </p>
+          <p>
+            En el cas de els menors de tretze anys es requereix el consentiment de els pares o tutors per al tractament de les seves dades personals. Si ets menor de tretze anys i has accedit a aquest lloc web sense avisar els teus pares no debes registrar-te com a usuari.
+          </p>
+          <p>
+            En aquesta web es respecten i cuiden les dades personals de els usuaris. Com a usuari debes saber que els teus drets estan garantizats. Ens hem esforçat molt en crear un espai seguro i confiable i per això volem compartir els nostres principis respecte a tu privacitat:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-xs">
+            <li>Mai sol·licitem informació personal a menys que realment sigui necessària per a prestar-te els serveis que ens requereix.</li>
+            <li>Mai compartim informació personal de els nostres usuaris amb nadie, excepte per complir amb la llei o en cas de que compta amb tu autorització expressa.</li>
+            <li>Mai utilitzem les teves dades personals amb una finalitat diferent a la expressada en aquesta política de privacitat.</li>
+          </ul>
+          <p>
+            És precís advertir que aquesta Política de Privacitat podria variar en funció de exigències legislatives o de autoregulació, per lo que s'aconsella els usuaris que la visiten periòdicament. Serà aplicable en cas de que els usuaris decidissin rellenar algun formulari de qualsevol de els seus formularis de contacte on es recaben dades de caràcter personal.
+          </p>
+          <p>
+            L'associació <strong>ADOCAT</strong> ha adequat aquesta web a les exigències de la Llei Orgànica 15/1999, de 13 de desembre, de Protecció de Dades de Caràcter Personal (LOPD), i al Reial Decret 1720/2007, de 21 de desembre. Compleix també amb el Reglament (UE) 2016/679 (RGPD), així com amb la Llei 34/2002 (LSSICE).
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Responsable del tractament de tus dades personals:</p>
+          <div class="bg-gray-50 p-4 border border-gray-200 rounded-xs space-y-1 font-sans text-xs text-gray-700">
+            <p><strong>• Identitat del Responsable:</strong> Associació de Docents de Formació Professional Ocupacional de Catalunya (ADOCAT)</p>
+            <p><strong>• NIF / CIF:</strong> G-67492018</p>
+            <p><strong>• Direcció:</strong> C/ de Sardenya, nº 229, 08013 — Barcelona</p>
+            <p><strong>• Correu electrònic:</strong> info@nataliyadev.com</p>
+            <p><strong>• Activitat:</strong> Suport legal, defensa col·lectiva i gestió de serveis formatius de la FPE.</p>
+          </div>
+          <p>
+            A efectes de lo previst en el Reglament General de Protecció de Dades abans citat, els dades personals que m'enviïs a través de els formularis de la web, rebran el tractament de dades de "Usuaris consultes web i subscriptors". Per al tractament de dades de els meus usuaris, implemento totes les mesures tècniques i organitzatives de seguretat establertes en la legislació vigent.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Principis que se aplicaran a tu informació personal:</p>
+          <p>
+            En el tractament de les teves dades personals, aplicaré els següents principis que se ajusten a les exigències del nou reglament europeu de protecció de dades:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 text-xs">
+            <li><strong>Principi de licitud, lleialtat i transparència:</strong> Sempre anem a requerir el teu consentiment per al tractament de les teves dades personals per a un o diversos fins específics que te informaré prèviament amb absoluta transparència.</li>
+            <li><strong>Principi de minimització de dades:</strong> Solo anem a sol·licitar dades estrictament necessaris en relació amb els fins per a els quals els requerim. Els mínims possibles.</li>
+            <li><strong>Principi de limitació del termini de conservació:</strong> Els dades seran mantinguts durant no més temps del necessari per a els fins del tractament. En el cas de subscripcions, periòdicament revisaré les meves llistes i eliminaré aquells registres inactius durant un temps considerable.</li>
+            <li><strong>Principi de integritat i confidencialitat:</strong> Els teus dades seran tractats de tal manera que se garanteixi una seguretat adequada de les dades personals i se garanteixi confidencialitat. Debes saber que prendré totes les precaucions necessàries per evitar l'accés no autoritzat o ús indegut de les dades de els meus usuaris per part de tercers.</li>
+          </ul>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">¿Cómo he obtenido tus dades?</p>
+          <p>Els dades personals que tractem a la web procedeixen de:</p>
+          <ul class="list-disc pl-5 space-y-1 text-xs">
+            <li>Formulari de consulta interna.</li>
+            <li>Formulari de sol·licitud de serveis i alta d'afiliats.</li>
+            <li>Formulari d'alta al butlletí de notícies (Leads).</li>
+          </ul>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">¿Quins són els teus drets quan ens facilitas les teves dades?</p>
+          <p>
+            Qualsevol persona té dret a obtenir confirmació sobre si estem tractant dades personals que ens concerneixen, o no. Les persones interessades tenen dret a:
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-xs">
+            <li>Sol·licitar l'accés a les dades personals relatius al interessat.</li>
+            <li>Sol·licitar la seva rectificació o supressió.</li>
+            <li>Sol·licitar la limitació de la seva递 tractament.</li>
+            <li>Oposar-se al tractament.</li>
+            <li>Sol·licitar la portabilitat de les dades.</li>
+          </ul>
+          <p>
+            Els interessats podran **accedir** a les seves dades personals, així com a sol·licitar la **rectificació** de les dades inexactes o, en el seu cas, sol·licitar la seva **supressió** quan, entre altres motius, els dades ja no siguin necessaris per a els fins que van ser recollits. En determinades circumstàncies, els interessats podran sol·licitar la **limitació** del tractament de les seves dades, en cuyo cas únicament els conservaré per al exercici o la defensa de reclamacions.
+          </p>
+          <p>
+            En determinades circumstàncies i per motius relacionats amb la seva situació particular, els interessats podran **oposar-se** al tractament de les seves dades. L'associació deixarà de tractar les dades, salvo per motius legítims imperiosos, o el exercici o la defensa de possibles reclamacions. Cómo interessat, tens dret a rebre les dades personals que te incuban, que em hagis facilitat i en un format estructurat, de ús comú i lectura mecànica, i a transmitir-los a un altre responsable del tractament quan: el tractament estigui basat en el consentiment; les dades hagin estat facilitats per la persona interessada; o el tractament se efectuï per mitjans automatitzats.
+          </p>
+          <p>
+            Al exercir el teu dret a la portabilitat de les dades, tindràs dret a que les dades personals es transmitin directament de responsable a responsable quan sigui tècnicament possible. Els interessats també tindran dret a la tutela judicial efectiva i a presentar una reclamació davant l'autoritat de control, en aquest cas, la Agencia Española de Protección de Datos (AEPD), si consideren que el tractament de dades personals que li concerneixen infringeix el Reglament.
+          </p>
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">¿Amb quina finalitat tractem les teves dades personals?</p>
+          <p>
+            Quan un usuari es connecta amb aquesta web per exemple per enviar un correu al titular, mandar un correu al titular, subscriure's o realitzar alguna contractació, està facilitant informació de caràcter personal de la que és responsable l'associació ADOCAT. Aquesta informació pot incloure dades de caràcter personal com poden ser la teva adreça IP, nom, adreça física, adreça de correu electrònic, número de telèfon, i altra informació. Al facilitar aquesta informació, l'usuari dóna el seu consentiment per a que la seva informació sigui recopilada, utilitzada, gestionada i emmagatzemada per l'associació, solo com es descriu en l'Avís Legal i en la present Política de Privacitat.
+          </p>
+          <p>
+            A la web existeixen diferents sistemes de captura d'informació personal i tracto la informació que em facilitan les persones interessades amb el següent fi per cada sistema de captura (formularis):
+          </p>
+          <ul class="list-disc pl-5 space-y-3 text-xs">
+            <li><strong>Formulari de contacte i suport:</strong> Sol·licitem els següents dades personals: Nom, Email, Telèfon, per respondre a les requeriments dels usuaris de la web. Per exemple, podem utilitzar aquestes dades per respondre a la teva sol·licitud i dar resposta a les dubtes, queixes, comentaris o inquietuds que puguis tenir relatives a la informació inclosa en la web, els serveis que se prestan a través de la web, el tractament de les seves dades personals, qüestions referents a els textos legals inclosos en la web, així com cualesquiera otras consultes que puguis tenir i que no estiguin subjectes a les condicions de contractació. S'informa que aquestes dades estaràn ubicats en els servidors de Netlify i de la base de dades encriptada.</li>
+            <li><strong>Formulari de sol·licitud de serveis (Alta d'Afiliat):</strong> Sol·licitem els següents dades personals: Nom, Email, Telèfon, per respondre a les requeriments dels usuaris de la web. Per exemple, podem utilitzar aquestes dades per respondre a la teva sol·licitud d'afiliació i dar resposta a les dubtes, queixes, comentaris o inquietuds que puguis tenir relatives a les condicions de contractació. S'informa que aquestes dades estaràn ubicats en els servidors de la base de dades encriptada i protegida.</li>
+            <li><strong>Formulari d'alta per a comentaris i butlletí del blog:</strong> Per comentar les publicacions del blog o subscriure's es requereix que l'usuari es doni de alta a través d'aquest formulari. En aquest cas, sol·licito els següents dades personals: Nom, Email, Telèfon, Adreça IP. Una vegada dado de alta, l'usuari podrà realitzar tantos comentaris com desitgi i dar resposta sobre els anteriors. S'informa que les dades que ens facilitas estaràn ubicats en els servidors de Resend (proveïdor de email marketing).</li>
+          </ul>
+
+          <p>Existeixen altres finalitats per la que tracto les teves dades personals:</p>
+          <ul class="list-disc pl-5 space-y-2 text-xs">
+            <li>Para garantir el compliment de les condicions de ús i la llei aplicable. Això pot incloure el desenvolupament de herramientas i algoritmes que ajuden a aquesta web a garantir la confidencialitat de les dades personals que recull.</li>
+            <li>Para recolzar i millorar els serveis que ofereix aquesta web.</li>
+            <li>També es recullen altres dades no identificatius que s'obtenen mitjançant algunes cookies que es descarreguen en l'ordinador de l'usuari quan navega en aquesta web que detallo en la política de cookies.</li>
+            <li>Para gestionar les xarxes socials. L'associació pot tenir presència en xarxes socials. El tractament de les dades de les persones que es facin seguidores en les xarxes socials de les pàgines oficials de l'associació, es regirà per aquest apartat. Així com per aquelles condicions de ús, polítiques de privacitat i normatives d'accés que pertanyin a la xarxa social que procedeixi en cada cas i acceptades prèviament per l'usuari. Tractarà les seves dades amb les finalitats de administrar correctament la seva presència en la xarxa social, informant de activitats, productes o serveis de l'associació. En ningún cas s'utilitzarà els perfils de seguidors en xarxes socials per enviar publicitat de manera individual.</li>
+          </ul>
+
+          <p>
+            De acord a lo establert en el reglament general de protecció de dades europeu (RGPD) 2016/679, l'associació ADOCAT, serà responsable del tractament de les dades corresponents a Usuaris en la web i subscriptors. L'associació no ven, lloga ni cedeix dades de caràcter personal que puguin identificar l'usuari, ni ho farà en el futur, a tercers sense el consentiment previ. Sin embargo, en alguns casos se poden realitzar col·laboracions amb altres professionals, en esos casos, se requerirà consentiment a els usuaris informant sobre la identitat del col·laborador i la finalitat de la col·laboració. Sempre se realitzarà amb els més estrictes estàndards de seguretat.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Legitimació per al tractament de les teves dades:</p>
+          <p>La base legal per al tractament de les seves dades és: el consentiment.</p>
+          <p>Para contactar o realitzar comentaris en aquesta web se requereix el consentiment amb aquesta política de privacitat.</p>
+          <p>La oferta prospectiva o comercial de serveis està basada en el consentiment que se li sol·licita, sense que en ningún cas la retirada de este consentiment condicioni la execució del contracte de subscripció.</p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Categoria de dades:</p>
+          <p>Les categories de dades que es tracten són dades identificatius.</p>
+          <p>No se tracten categories de dades especialment protegits.</p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">¿Per cuánto temps conservaré les teves dades?</p>
+          <p><strong>Els dades personals proporcionats es conservaran:</strong> Fins que no se sol·liciti la seva supressió per el interessat.</p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">¿A quins destinataris se comunicaran les teves dades?</p>
+          <p>Muchas herramientas que utilitzo per gestionar les teves dades són contractades per tercers.</p>
+          <p>Para prestar serveis estrictament necessaris per al desenvolupament de la activitat, comparteixo dades amb els següents prestadors sota les seves corresponents condicions de privacitat:</p>
+          
+          <ul class="list-disc pl-5 space-y-2 text-xs">
+            <li><strong>Google Analytics:</strong> un servei analític de web prestat per Google, Inc., una companyia de Delaware la oficina principal de la qual està en 1600 Amphitheatre Parkway, Mountain View (Califòrnia), CA 94043, Estats Units (“Google”). Google Analytics utilitza “cookies”, que són arxius de text ubicats en tu ordinador, per ajudar a la web a analitzar l'ús que fan els usuaris del lloc web. La informació que genera la cookie de l'ús de la web (incloent tu adreça IP) serà directament transmesa i arxivada per Google en els servidors de Estats Units.</li>
+            <li><strong>Allotjament (Hosting):</strong> Netlify Inc., amb domicili a Estats Units. Més informació en les seves polítiques de privacitat corporatives. Gestiona el servidor i codi del portal de manera segura.</li>
+            <li><strong>Plataforma de Base de Dades:</strong> Supabase Inc., amb domicili en EEUU. Emmagatzema l'historial tècnic, l'accés d'afiliats i el registre d'activitat de forma xifrada i protegida.</li>
+            <li><strong>Email màrqueting / Gestió d'enviaments:</strong> Resend Inc., amb domicili als Estats Units. Més informació en les seves plataformes de privacitat. S'encarrega de processar les altes del butlletí de notícies de ADOCAT de forma automatitzada.</li>
+          </ul>
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Navegació:</p>
+          <p>
+            Al navegar per aquesta web es poden recollir dades no identificables, que poden incloure, adreces IP, ubicació geogràfica (aproximadament), un registre de com es utilitzen els serveis i llocs, i altres dades que no poden ser utilitzades per identificar l'usuari. Entre les dades no identificatius estan també els relacionats als teus hàbits de navegació a través de serveis de tercers. Aquesta web utilitza els següents serveis d'anàlisi de tercers: Google Analytics.
+          </p>
+          <p>
+            Utilitzo aquesta informació per analitzar tendències, administrar el lloc, rastrejar els moviments de els usuaris al voltant del lloc i per recopilar informació demogràfica sobre mi base de usuaris en el seu conjunt.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Secret i seguretat de les dades:</p>
+          <p>
+            Aquesta web es compromet en el ús i tractament de les dades inclosos personals de els usuaris, respectant la seva confidencialitat y a utilitzar-los d'acord amb la finalitat del mateix, així com a dar compliment a la seva obligació de guardar-los i adaptar totes les mesures per evitar la alteració, pèrdua, tractament o accés no autoritzat, de conformitat amb lo establert en la normativa vigent de protecció de dades.
+          </p>
+          <p>
+            Aquesta web està en procés de incloure el certificat SSL. Se tracta de un protocol de seguretat que fa que les teves dades viatgin de manera íntegra i segura, és dir, la transmissió de les dades entre un servidor i usuari web, y en retroalimentació, és totalment xifrada o encriptada.
+          </p>
+          <p>
+            Aquesta web no pot garantir la absoluta inexpugnabilitat de la xarxa Internet i per tant la violació de les dades mitjançant accessos fraudulents a ells per part de tercers.
+          </p>
+          <p>
+            Amb respecte a la confidencialitat del processament, l'associació s'assegurarà de que qualsevol persona que estigui autoritzada per processar les dades del docent (inclòs el seu personal, col·laboradors i prestadors), estarà sota la obligació apropiada de confidencialitat (ja sigui un deure contractual o legal).
+          </p>
+          <p>
+            Quan se presenti algun incident de seguretat, al adonar-se'n l'associació, haurà de notificar al Client sense demores indegudes i haurà de proporcionar informació oportuna relacionada amb l'Incident de Seguretat tal com se conegui o quan el Client ho sol·liciti raonablement.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Exactitud i veracitat de les dades:</p>
+          <p>
+            Com a usuari, ets l'únic responsable de la veracitat i correcció de les dades que remitis a l'associació, exonerant l'associació de qualsevol responsabilitat al respecte.
+          </p>
+          <p>
+            Els usuaris garanteixen i responen, en qualsevol cas, de la exactitud, vigència y autenticitat de les dades personals facilitats, i es comprometen a mantenir-los degudament actualitzats. L'usuari accepta proporcionar informació completa i correcta en el formulari de contacte o subscripció.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Aceptació i consentiment:</p>
+          <p>
+            L'usuari declara haver estat informat de les condicions sobre protecció de dades de caràcter personal, acceptant i consentint el tractament de els mateixos per part de l'associació en la forma i per a les finalitats indicades en aquesta política de privacitat.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Revocabilitat:</p>
+          <p>
+            El consentiment prestat, tant per al tractament com per a la cessió de les dades de els interessats, és revocable en qualsevol moment comunicant-lo a l'associació en els térmens establerts en aquesta Política per al exercici de els drets ARCO. Aquesta revocació en ningún cas tindrà caràcter retroactiu.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Canvis en la política de privacitat:</p>
+          <p>
+            L'associació es reserva el dret a modificar la present política per adaptar-la a novetats legislatives o jurisprudencials, així com a pràctiques de la indústria. En dits supòsits, l'associació anunciarà en aquesta pàgina els canvis introduïts amb raonable antelació a la seva posada en pràctica.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Correus comercials:</p>
+          <p>
+            De acord con la LSSICE, no realitza pràctiques de SPAM, per lo que no envia correus comercials per via electrònica que no hagin estat prèviament sol·licitats o autoritzats per l'usuari. En conseqüència, en cadascun de els formularis habuts en la web, l'usuari té la possibilitat de dar el seu consentiment exprés per rebre el butlletí, amb independència de la informació comercial puntualment sol·licitada.
+          </p>
+          <p>
+            Conforme a lo disposat en la Llei 34/2002 de Serveis de la Societat de la Informació i de comerç electrònic, em comprometo a no enviar comunicacions de caràcter comercial sense identificar-les degudament.
+          </p>
+          
+          <p class="text-right text-[10px] text-gray-400 italic pt-4">
+            Document revisat el 14-09-2026.
+          </p>
+        </div>
       </section>
 
-      <!-- 3. SECCIÓ: COOKIES -->
-      <section id="cookies" class="hidden target:block space-y-4">
-        <!-- Ссылка возврата для mobile в стиле новостей -->
+            <!-- 3. SECCIÓ: COOKIES -->
+      <section id="cookies" class="hidden target:block space-y-4 scroll-mt-32">
         <div class="pb-2">
             <a href="/" class="inline-flex items-center gap-2 font-sans text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-emerald-600 transition-colors group">
                 <span class="transform group-hover:-translate-x-0.5 transition-transform">←</span> 
-                Tornar al meu compte
+                Tornar a l'inici
             </a>
         </div>
+
         <span class="px-2 py-0.5 border border-gray-200 bg-gray-50 text-gray-600 text-[10px] font-black uppercase tracking-wider rounded-xs">
-          Galetes
+          Galetes i Seguretat de Navegació
         </span>
+        
         <h2 class="text-2xl font-black uppercase tracking-tight text-brand-dark pt-1">
           Política de Cookies
         </h2>
-        <p class="text-sm leading-relaxed text-justify">
-          Aquest lloc web utilitza cookies tècniques i essencials strictly necessàries per al correcte funcionament de l'àrea privada de l'afiliat i el manteniment de la sessió de l'usuari de forma segura.
-        </p>
-        <p class="text-sm leading-relaxed text-justify">
-          No s'utilitzen cookies de rastreig publicitari ni se cedeixen dades de navegació a corporacions analítiques externes sense el seu avís previ. L'usuari pou configurar o desactivar l'ús de galetes directament des de les opcions del seu navegador web.
-        </p>
+        
+        <div class="text-sm leading-relaxed text-justify space-y-4 text-gray-600">
+          <p>
+            Una cookie és un petit fitxer de text que s'emmagatzema en el seu navegador quan visita gairebé qualsevol pàgina web. La seva utilitat és que la web sigui capaç de recordar la seva visita quan torni a navegar per aquesta pàgina. Les cookies solen emmagatzemar informació de caràcter tècnic, preferències personals, personalització de continguts, estadístiques d'ús, enllaços a xarxes socials, accés a comptes d'usuari, etc. L'objectiu de la cookie és adaptar el contingut de la web al seu perfil i necessitats, sense cookies els serveis ofrets per qualsevol pàgina es veurien mermats notablement.
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Cookies utilitzades en aquest lloc web:</p>
+          <p>
+            Seguint les directrius de la Agencia Española de Protección de Datos procedim a detallar l'ús de cookies que fa aquesta web amb la fi d'informar-vos amb la màxima exactitud possible.
+          </p>
+          
+          <p class="font-semibold text-gray-800 pt-1">Aquest lloc web utilitza les següents cookies pròpies:</p>
+          <ul class="list-disc pl-5 space-y-1 text-xs">
+            <li><strong>Cookies de sessió:</strong> per garantir que els usuaris que es connecten a l'àrea privada o escriuen comentaris en el blog siguin humans i no aplicacions automatitzades. De aquesta forma es combat de manera activa el spam i es manté l'accés segur.</li>
+          </ul>
+
+          <p class="font-semibold text-gray-800 pt-1">Aquest lloc web utilitza les següents cookies de tercers:</p>
+          <ul class="list-disc pl-5 space-y-2 text-xs">
+            <li><strong>Google Analytics:</strong> Emmagatzema cookies per poder elaborar estadístiques sobre el tràfic i volum de visites d'aquesta web. Al utilitzar aquest lloc web està consentint el tractament d'informació de navegació per Google. Per tant, el exercici de qualsevol dret en aquest sentit haurà de fer-ho comunicant directament amb Google.</li>
+            <li><strong>Xarxes socials:</strong> Cada xarxa social utilitza les seves pròpies cookies per a que vostè pugui pinchar en botons del tipus *M'agrada* o *Compartir* els nostres articles de premsa o informacions.</li>
+          </ul>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Desactivació o eliminació de cookies:</p>
+          <p>
+            En qualsevol moment podrà exercir el seu dret de desactivació o eliminació de cookies d'aquest lloc web. Aquestes accions se realitzen de forma diferent en funció del navegador que estigui usant. Pot configurar les opcions de privacitat i seguretat directament des del panell de configuració del seu navegador d'Internet (Chrome, Safari, Firefox o Edge).
+          </p>
+
+          <p class="font-bold text-gray-900 pt-2 uppercase tracking-wide text-xs">Notas addicionals:</p>
+          <ul class="list-disc pl-5 space-y-2 text-xs">
+            <li>Ni aquesta web ni els seus representants legals es fan responsables ni del contingut ni de la veracitat de les polítiques de privacitat que puguin tenir els tercers esmentats en aquesta política de cookies.</li>
+            <li>Els navegadors web són les eines encarregades d'emmagatzemar les cookies i des d'aquest lloc ha d'efectuar el seu dret a eliminació o desactivació de les mateixes. Ni aquesta web ni els seus representants legals poden garantir la correcta o incorrecta manipulació de les cookies per part dels esmentats navegadors.</li>
+            <li>En alguns casos és necessari instal·lar cookies per a que el navegador no oblidi la seva decisió de no acceptació de les mateixes.</li>
+            <li>En el cas de les cookies de Google Analytics, aquesta empresa emmagatzema les cookies en servidors ubicats en Estats Units i es compromet a no compartir-la amb tercers, excepte en els casos en els quals sigui necessari per al funcionament del sistema o quan la llei obligui a tal efecte. Segons Google no guarda la seva adreça IP completa per garantir l'anonimat.</li>
+            <li>Per a qualsevol dubte o consulta oficial sobre aquesta política de cookies no dubte en comunicar-se amb l'associació a través de la secció de contacte oficial enviant un correu a info@nataliyadev.com.</li>
+          </ul>
+
+          <p class="text-right text-[10px] text-gray-400 italic pt-4">
+            Document de galetes revisat i validat el 14-09-2026.
+          </p>
+        </div>
       </section>
 
     </div>
