@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <h2 class="text-xl md:text-2xl font-black tracking-tight text-gray-900 font-sans uppercase">ASSOCIACIÓ DE DOCENTS OCUPACIONALS DE CATALUNYA</h2>
                             <p class="text-xs font-sans text-gray-500 font-bold uppercase tracking-wider">DEPARTAMENT JURÍDIC I DE SINDICACIÓ — PROTOCOL REGISTRE: #AD-2026/9482</p>
                         </div>
-                        <div class="text-right font-sans text-xs text-gray-400 shrink-0">DATA: 12/09/2026</div>
+                        <div class="text-right font-sans text-xs text-gray-400">DATA: 12/09/2026</div>
                     </div>
                     <div class="text-center py-2">
                         <h3 class="text-lg md:text-xl font-black uppercase tracking-wide underline decoration-1 underline-offset-4">FULL D'ALTA INTEGRAL I GARANTIA DE DRETS LABORALS</h3>
